@@ -1,147 +1,168 @@
-﻿@model IEnumerable<Roadway_History.Models.Statewide>
+﻿@model PagedList.IPagedList<Roadway_History.Models.Statewide>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Statewide";
+    <h2>Statewides Index</h2>
 }
-
-<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
+
 </p>
+
+@using (Html.BeginForm("Index", "Statewides", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.COUNTY)
+            @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SignSys)
+            @Html.ActionLink("County", "Index", new { sortOrder = ViewBag.countySortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RouteNoOrigImport)
+            Sign Sys
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RouteNo)
+            Route No. Orig Import
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SuppDes)
+            Route No.
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LocalName)
+            SuppDes
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateNumber)
+            Local Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Method)
+            Date Number
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OriginalL)
+            Method
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OriginalD)
+            Original L
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Projects)
+            Original D
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Documents)
+            Projects
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Comments)
+            Documents
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.District)
+            Comments
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RightofWay)
+            District
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ReservedBy)
+            Right of Way
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ReservedDate)
+            Reversed By
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Work_Comments)
+            Reserved Date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CP_ProjectNo)
+            Work Comments
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ReservedCat)
+            CP Project No.
+        </th>
+        <th>
+            Reserved Cat
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.COUNTY)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SignSys)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RouteNoOrigImport)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RouteNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SuppDes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LocalName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Method)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OriginalL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OriginalD)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Projects)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Documents)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.District)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RightofWay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReservedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReservedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Work_Comments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CP_ProjectNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReservedCat)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.COUNTY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SignSys)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RouteNoOrigImport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RouteNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SuppDes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Method)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OriginalL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OriginalD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Projects)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Documents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.District)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RightofWay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Work_Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CP_ProjectNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservedCat)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

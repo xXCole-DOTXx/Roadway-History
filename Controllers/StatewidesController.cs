@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Roadway_History.Models;
+using PagedList;
 
 namespace Roadway_History.Controllers
 {
@@ -15,9 +16,49 @@ namespace Roadway_History.Controllers
         private RoadWay_HistoryEntities db = new RoadWay_HistoryEntities();
 
         // GET: Statewides
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Statewides.ToList());
+            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID_desc" : "";
+            ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            var statewides = from s in db.Statewides
+                            select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                statewides = statewides.Where(s => s.COUNTY.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "ID_desc":
+                    statewides = statewides.OrderByDescending(s => s.ID);
+                    break;
+                case "county":
+                    statewides = statewides.OrderBy(s => s.COUNTY);
+                    break;
+                case "county_desc":
+                    statewides = statewides.OrderByDescending(s => s.COUNTY);
+                    break;
+                default:
+                    statewides = statewides.OrderBy(s => s.ID);
+                    break;
+            }
+
+            int pageSize = 1000;
+            int pageNumber = (page ?? 1);
+            return View(statewides.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Statewides/Details/5
