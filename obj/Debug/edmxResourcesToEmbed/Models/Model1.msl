@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RoadWay_HistoryModelStoreContainer" CdmEntityContainer="RoadWay_HistoryEntities">
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="RoadWay_HistoryModel.Document">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Statewide_ID" ColumnName="Statewide_ID" />
+          <ScalarProperty Name="Doc_Type" ColumnName="Doc_Type" />
+          <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+          <ScalarProperty Name="Doc_Location" ColumnName="Doc_Location" />
+          <ScalarProperty Name="File_Contents" ColumnName="File_Contents" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Statewides">
+      <EntityTypeMapping TypeName="RoadWay_HistoryModel.Statewide">
+        <MappingFragment StoreEntitySet="Statewide">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="COUNTY" ColumnName="COUNTY" />
+          <ScalarProperty Name="SignSys" ColumnName="SignSys" />
+          <ScalarProperty Name="RouteNoOrigImport" ColumnName="RouteNoOrigImport" />
+          <ScalarProperty Name="RouteNo" ColumnName="RouteNo" />
+          <ScalarProperty Name="SuppDes" ColumnName="SuppDes" />
+          <ScalarProperty Name="LocalName" ColumnName="LocalName" />
+          <ScalarProperty Name="DateNumber" ColumnName="DateNumber" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="OriginalL" ColumnName="OriginalL" />
+          <ScalarProperty Name="OriginalD" ColumnName="OriginalD" />
+          <ScalarProperty Name="Projects" ColumnName="Projects" />
+          <ScalarProperty Name="Documents" ColumnName="Documents" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Duplicate_OK" ColumnName="Duplicate OK" />
+          <ScalarProperty Name="RightofWay" ColumnName="RightofWay" />
+          <ScalarProperty Name="ReservedRoute" ColumnName="ReservedRoute" />
+          <ScalarProperty Name="ReservedBy" ColumnName="ReservedBy" />
+          <ScalarProperty Name="ReservedDate" ColumnName="ReservedDate" />
+          <ScalarProperty Name="CP_WorkCompleted" ColumnName="CP_WorkCompleted" />
+          <ScalarProperty Name="Work_Comments" ColumnName="Work_Comments" />
+          <ScalarProperty Name="CP_ProjectNo" ColumnName="CP_ProjectNo" />
+          <ScalarProperty Name="ReservedCat" ColumnName="ReservedCat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

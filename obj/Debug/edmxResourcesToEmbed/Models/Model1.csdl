@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RoadWay_HistoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Statewide_ID" Type="Int32" />
+    <Property Name="Doc_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Order_Date" Type="DateTime" Precision="3" />
+    <Property Name="Doc_Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="File_Contents" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Statewide">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Duplicate_OK" />
+      <PropertyRef Name="ReservedRoute" />
+      <PropertyRef Name="CP_WorkCompleted" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="COUNTY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SignSys" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RouteNoOrigImport" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RouteNo" Type="Int32" />
+    <Property Name="SuppDes" Type="Int32" />
+    <Property Name="LocalName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DateNumber" Type="DateTime" Precision="3" />
+    <Property Name="Method" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OriginalL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OriginalD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Projects" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Documents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="District" Type="Int32" />
+    <Property Name="Duplicate_OK" Type="Boolean" Nullable="false" />
+    <Property Name="RightofWay" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ReservedRoute" Type="Boolean" Nullable="false" />
+    <Property Name="ReservedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReservedDate" Type="DateTime" Precision="3" />
+    <Property Name="CP_WorkCompleted" Type="Boolean" Nullable="false" />
+    <Property Name="Work_Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CP_ProjectNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ReservedCat" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="RoadWay_HistoryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Documents" EntityType="Self.Document" />
+    <EntitySet Name="Statewides" EntityType="Self.Statewide" />
+  </EntityContainer>
+</Schema>

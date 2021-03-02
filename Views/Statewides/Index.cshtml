@@ -1,0 +1,147 @@
+﻿@model IEnumerable<Roadway_History.Models.Statewide>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.COUNTY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignSys)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RouteNoOrigImport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RouteNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuppDes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Method)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OriginalL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OriginalD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Projects)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Documents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.District)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RightofWay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Work_Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CP_ProjectNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservedCat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.COUNTY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignSys)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RouteNoOrigImport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RouteNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuppDes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Method)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OriginalL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OriginalD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Projects)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Documents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.District)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RightofWay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Work_Comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CP_ProjectNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservedCat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

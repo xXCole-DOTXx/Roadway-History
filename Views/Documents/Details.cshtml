@@ -1,0 +1,74 @@
+﻿@model Roadway_History.Models.Document
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Document</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Statewide_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Statewide_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Order_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File_Contents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.File_Contents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
