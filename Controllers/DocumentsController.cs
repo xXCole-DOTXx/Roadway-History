@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Roadway_History.Models;
+using PagedList;
 
 namespace Roadway_History.Controllers
 {
@@ -15,10 +16,21 @@ namespace Roadway_History.Controllers
         private RoadWay_HistoryEntities db = new RoadWay_HistoryEntities();
 
         // GET: Documents
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID_desc" : "";
             ViewBag.stateIDSortParm = sortOrder == "stateID" ? "state_desc" : "stateID";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
 
             var documents = from s in db.Documents
                             select s;
@@ -44,7 +56,9 @@ namespace Roadway_History.Controllers
                     break;
             }
 
-            return View(db.Documents.ToList());
+            int pageSize = 1000;
+            int pageNumber = (page ?? 1);
+            return View(documents.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Documents/Details/5

@@ -1,79 +1,94 @@
-﻿@model IEnumerable<Roadway_History.Models.Document>
+﻿@model PagedList.IPagedList<Roadway_History.Models.Document>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Documents";
+    <h2>Documents Index</h2>
 }
-
-<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
+
 </p>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Index", "Documents", FormMethod.Get))
 {
     <p>
-        Find by name: @Html.TextBox("SearchString")
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
         <input type="submit" value="Search" />
     </p>
 }
 
+
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Statewide ID", "Index", new { sortOrder = ViewBag.stateIDSortParm })
+            @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Doc_Type)
+            @Html.ActionLink("Statewide ID", "Index", new { sortOrder = ViewBag.stateIDSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Order_Date)
+            Doc Type
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Doc_Location)
+            Order Date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.File_Contents)
+            Doc Location
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Comment)
+            File Contents
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Source)
+            Comment
+        </th>
+        <th>
+            Source
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Statewide_ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Doc_Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Order_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Doc_Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.File_Contents)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Source)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Statewide_ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Doc_Type)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Order_Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Doc_Location)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.File_Contents)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Comment)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Source)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+</tr>
     }
 
 </table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

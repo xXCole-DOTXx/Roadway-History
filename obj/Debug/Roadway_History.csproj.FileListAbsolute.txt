@@ -81,3 +81,7 @@ C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\obj\Debug\Roadway_Hi
 C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\obj\Debug\Roadway_History.dll
 C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\obj\Debug\Roadway_History.pdb
 C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\obj\Debug\Roadway_History.csprojAssemblyReference.cache
+C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\bin\PagedList.dll
+C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\bin\PagedList.Mvc.dll
+C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\bin\PagedList.xml
+C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\bin\PagedList.Mvc.xml
