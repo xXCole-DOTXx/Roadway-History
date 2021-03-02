@@ -9,10 +9,19 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Statewide_ID)
+            @Html.ActionLink("Statewide ID", "Index", new { sortOrder = ViewBag.stateIDSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Doc_Type)
@@ -35,35 +44,36 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Statewide_ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Doc_Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Order_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Doc_Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.File_Contents)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Source)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Statewide_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc_Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.File_Contents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

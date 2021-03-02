@@ -80,3 +80,4 @@ C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\obj\Debug\Roadway_Hi
 C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\obj\Debug\Roadway_History.csproj.CopyComplete
 C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\obj\Debug\Roadway_History.dll
 C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\obj\Debug\Roadway_History.pdb
+C:\Users\e096752\Documents\Cole's Git Repos\Roadway_History\obj\Debug\Roadway_History.csprojAssemblyReference.cache
