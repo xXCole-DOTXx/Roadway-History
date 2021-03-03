@@ -15,7 +15,7 @@
 @using (Html.BeginForm("Index", "Documents", FormMethod.Get))
 {
     <p>
-        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        Find by Statewide ID: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
         <input type="submit" value="Search" />
     </p>
 }

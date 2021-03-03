@@ -64,8 +64,6 @@ namespace Roadway_History.Controllers
         // GET: Statewides/Details/5
         public ActionResult Details(int? id)
         {
-            System.Diagnostics.Debug.WriteLine("********************** id being sent ******************************");
-            System.Diagnostics.Debug.WriteLine(id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
