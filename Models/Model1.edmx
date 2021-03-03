@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RoadWay_HistoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RoadWay_HistoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Documents">
           <Key>
             <PropertyRef Name="ID" />
@@ -18,14 +18,9 @@
           <Property Name="Comment" Type="nvarchar(max)" />
           <Property Name="Source" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadWay_History.dbo.Statewide' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Statewide">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="Duplicate OK" />
-            <PropertyRef Name="ReservedRoute" />
-            <PropertyRef Name="CP_WorkCompleted" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="COUNTY" Type="nvarchar" MaxLength="255" />
@@ -52,39 +47,27 @@ warning 6002: The table/view 'RoadWay_History.dbo.Statewide' does not have a pri
           <Property Name="CP_ProjectNo" Type="nvarchar" MaxLength="255" />
           <Property Name="ReservedCat" Type="int" />
         </EntityType>
+        <Association Name="FK_Documents_Statewide">
+          <End Role="Statewide" Type="Self.Statewide" Multiplicity="0..1" />
+          <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statewide">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="Statewide_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="RoadWay_HistoryModelStoreContainer">
           <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Statewide" EntityType="Self.Statewide" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Statewide].[ID] AS [ID], 
-    [Statewide].[COUNTY] AS [COUNTY], 
-    [Statewide].[SignSys] AS [SignSys], 
-    [Statewide].[RouteNoOrigImport] AS [RouteNoOrigImport], 
-    [Statewide].[RouteNo] AS [RouteNo], 
-    [Statewide].[SuppDes] AS [SuppDes], 
-    [Statewide].[LocalName] AS [LocalName], 
-    [Statewide].[DateNumber] AS [DateNumber], 
-    [Statewide].[Method] AS [Method], 
-    [Statewide].[OriginalL] AS [OriginalL], 
-    [Statewide].[OriginalD] AS [OriginalD], 
-    [Statewide].[Projects] AS [Projects], 
-    [Statewide].[Documents] AS [Documents], 
-    [Statewide].[Comments] AS [Comments], 
-    [Statewide].[District] AS [District], 
-    [Statewide].[Duplicate OK] AS [Duplicate OK], 
-    [Statewide].[RightofWay] AS [RightofWay], 
-    [Statewide].[ReservedRoute] AS [ReservedRoute], 
-    [Statewide].[ReservedBy] AS [ReservedBy], 
-    [Statewide].[ReservedDate] AS [ReservedDate], 
-    [Statewide].[CP_WorkCompleted] AS [CP_WorkCompleted], 
-    [Statewide].[Work_Comments] AS [Work_Comments], 
-    [Statewide].[CP_ProjectNo] AS [CP_ProjectNo], 
-    [Statewide].[ReservedCat] AS [ReservedCat]
-    FROM [dbo].[Statewide] AS [Statewide]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Statewide" EntityType="Self.Statewide" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Documents_Statewide" Association="Self.FK_Documents_Statewide">
+            <End Role="Statewide" EntitySet="Statewide" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RoadWay_HistoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -100,13 +83,11 @@ warning 6002: The table/view 'RoadWay_History.dbo.Statewide' does not have a pri
           <Property Name="File_Contents" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Statewide" Relationship="RoadWay_HistoryModel.FK_Documents_Statewide" FromRole="Document" ToRole="Statewide" />
         </EntityType>
         <EntityType Name="Statewide">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="Duplicate_OK" />
-            <PropertyRef Name="ReservedRoute" />
-            <PropertyRef Name="CP_WorkCompleted" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="COUNTY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -132,11 +113,28 @@ warning 6002: The table/view 'RoadWay_History.dbo.Statewide' does not have a pri
           <Property Name="Work_Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="CP_ProjectNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ReservedCat" Type="Int32" />
+          <NavigationProperty Name="Documents1" Relationship="RoadWay_HistoryModel.FK_Documents_Statewide" FromRole="Statewide" ToRole="Document" />
         </EntityType>
         <EntityContainer Name="RoadWay_HistoryEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Documents" EntityType="Self.Document" />
           <EntitySet Name="Statewides" EntityType="Self.Statewide" />
+          <AssociationSet Name="FK_Documents_Statewide" Association="RoadWay_HistoryModel.FK_Documents_Statewide">
+            <End Role="Statewide" EntitySet="Statewides" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Documents_Statewide">
+          <End Type="RoadWay_HistoryModel.Statewide" Role="Statewide" Multiplicity="0..1" />
+          <End Type="RoadWay_HistoryModel.Document" Role="Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statewide">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Document">
+              <PropertyRef Name="Statewide_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

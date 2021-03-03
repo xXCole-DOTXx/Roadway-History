@@ -14,6 +14,12 @@ namespace Roadway_History.Models
     
     public partial class Statewide
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Statewide()
+        {
+            this.Documents1 = new HashSet<Document>();
+        }
+    
         public int ID { get; set; }
         public string COUNTY { get; set; }
         public string SignSys { get; set; }
@@ -38,5 +44,8 @@ namespace Roadway_History.Models
         public string Work_Comments { get; set; }
         public string CP_ProjectNo { get; set; }
         public Nullable<int> ReservedCat { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Document> Documents1 { get; set; }
     }
 }

@@ -12,13 +12,11 @@
     <Property Name="File_Contents" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Statewide" Relationship="RoadWay_HistoryModel.FK_Documents_Statewide" FromRole="Document" ToRole="Statewide" />
   </EntityType>
   <EntityType Name="Statewide">
     <Key>
       <PropertyRef Name="ID" />
-      <PropertyRef Name="Duplicate_OK" />
-      <PropertyRef Name="ReservedRoute" />
-      <PropertyRef Name="CP_WorkCompleted" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="COUNTY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -44,9 +42,26 @@
     <Property Name="Work_Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="CP_ProjectNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="ReservedCat" Type="Int32" />
+    <NavigationProperty Name="Documents1" Relationship="RoadWay_HistoryModel.FK_Documents_Statewide" FromRole="Statewide" ToRole="Document" />
   </EntityType>
   <EntityContainer Name="RoadWay_HistoryEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Documents" EntityType="Self.Document" />
     <EntitySet Name="Statewides" EntityType="Self.Statewide" />
+    <AssociationSet Name="FK_Documents_Statewide" Association="RoadWay_HistoryModel.FK_Documents_Statewide">
+      <End Role="Statewide" EntitySet="Statewides" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_Documents_Statewide">
+    <End Type="RoadWay_HistoryModel.Statewide" Role="Statewide" Multiplicity="0..1" />
+    <End Type="RoadWay_HistoryModel.Document" Role="Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statewide">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="Statewide_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

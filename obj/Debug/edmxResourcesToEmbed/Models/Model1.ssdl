@@ -13,14 +13,9 @@
     <Property Name="Comment" Type="nvarchar(max)" />
     <Property Name="Source" Type="nvarchar(max)" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'RoadWay_History.dbo.Statewide' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Statewide">
     <Key>
       <PropertyRef Name="ID" />
-      <PropertyRef Name="Duplicate OK" />
-      <PropertyRef Name="ReservedRoute" />
-      <PropertyRef Name="CP_WorkCompleted" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="COUNTY" Type="nvarchar" MaxLength="255" />
@@ -47,35 +42,24 @@ warning 6002: The table/view 'RoadWay_History.dbo.Statewide' does not have a pri
     <Property Name="CP_ProjectNo" Type="nvarchar" MaxLength="255" />
     <Property Name="ReservedCat" Type="int" />
   </EntityType>
+  <Association Name="FK_Documents_Statewide">
+    <End Role="Statewide" Type="Self.Statewide" Multiplicity="0..1" />
+    <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statewide">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="Statewide_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="RoadWay_HistoryModelStoreContainer">
     <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Statewide" EntityType="Self.Statewide" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Statewide].[ID] AS [ID], 
-    [Statewide].[COUNTY] AS [COUNTY], 
-    [Statewide].[SignSys] AS [SignSys], 
-    [Statewide].[RouteNoOrigImport] AS [RouteNoOrigImport], 
-    [Statewide].[RouteNo] AS [RouteNo], 
-    [Statewide].[SuppDes] AS [SuppDes], 
-    [Statewide].[LocalName] AS [LocalName], 
-    [Statewide].[DateNumber] AS [DateNumber], 
-    [Statewide].[Method] AS [Method], 
-    [Statewide].[OriginalL] AS [OriginalL], 
-    [Statewide].[OriginalD] AS [OriginalD], 
-    [Statewide].[Projects] AS [Projects], 
-    [Statewide].[Documents] AS [Documents], 
-    [Statewide].[Comments] AS [Comments], 
-    [Statewide].[District] AS [District], 
-    [Statewide].[Duplicate OK] AS [Duplicate OK], 
-    [Statewide].[RightofWay] AS [RightofWay], 
-    [Statewide].[ReservedRoute] AS [ReservedRoute], 
-    [Statewide].[ReservedBy] AS [ReservedBy], 
-    [Statewide].[ReservedDate] AS [ReservedDate], 
-    [Statewide].[CP_WorkCompleted] AS [CP_WorkCompleted], 
-    [Statewide].[Work_Comments] AS [Work_Comments], 
-    [Statewide].[CP_ProjectNo] AS [CP_ProjectNo], 
-    [Statewide].[ReservedCat] AS [ReservedCat]
-    FROM [dbo].[Statewide] AS [Statewide]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="Statewide" EntityType="Self.Statewide" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Documents_Statewide" Association="Self.FK_Documents_Statewide">
+      <End Role="Statewide" EntitySet="Statewide" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

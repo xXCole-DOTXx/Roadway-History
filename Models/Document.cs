@@ -22,5 +22,7 @@ namespace Roadway_History.Models
         public string File_Contents { get; set; }
         public string Comment { get; set; }
         public string Source { get; set; }
+    
+        public virtual Statewide Statewide { get; set; }
     }
 }
