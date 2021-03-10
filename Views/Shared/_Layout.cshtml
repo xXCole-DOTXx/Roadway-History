@@ -9,20 +9,21 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header" style="margin-left: 10px">
                 <a href="@Url.Action("Index", "Home")" title="List View" class="links">
                     <img alt="List View" src="@Url.Content("~/Assets/WVDOT.png")" style="width:60px; height:60px; margin-right: 10px">
                 </a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Documents", "Index", "Documents")</li>
-                    <li>@Html.ActionLink("Statewides", "Index", "Statewides")</li>
-                </ul>
-            </div>
-        </div>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Documents", "Index", "Documents")</li>
+                <li>@Html.ActionLink("Statewides", "Index", "Statewides")</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Log In</a></li>
+            </ul>
     </div>
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
