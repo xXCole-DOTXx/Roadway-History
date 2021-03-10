@@ -32,10 +32,10 @@
             Sign Sys
         </th>
         <th>
-            Route No. Orig Import
+            @Html.ActionLink("Route No Originl Import", "Index", new { sortOrder = ViewBag.OGrouteSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            Route No.
+            @Html.ActionLink("Route No", "Index", new { sortOrder = ViewBag.routeSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             SuppDes

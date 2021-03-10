@@ -20,6 +20,8 @@ namespace Roadway_History.Controllers
         {
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID_desc" : "";
             ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
+            ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";
+            ViewBag.OGrouteSortParm = sortOrder == "OGroute" ? "OGroute_desc" : "OGroute";
 
             if (searchString != null)
             {
@@ -37,7 +39,8 @@ namespace Roadway_History.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                statewides = statewides.Where(s => s.COUNTY.Contains(searchString));
+                statewides = statewides.Where(s => s.COUNTY.Contains(searchString)
+                                             || s.RouteNoOrigImport.Contains(searchString));
             }
 
             switch (sortOrder)
@@ -50,6 +53,18 @@ namespace Roadway_History.Controllers
                     break;
                 case "county_desc":
                     statewides = statewides.OrderByDescending(s => s.COUNTY);
+                    break;
+                case "route":
+                    statewides = statewides.OrderBy(s => s.RouteNo);
+                    break;
+                case "route_desc":
+                    statewides = statewides.OrderByDescending(s => s.RouteNo);
+                    break;
+                case "OGroute":
+                    statewides = statewides.OrderBy(s => s.RouteNoOrigImport);
+                    break;
+                case "OGroute_desc":
+                    statewides = statewides.OrderByDescending(s => s.RouteNoOrigImport);
                     break;
                 default:
                     statewides = statewides.OrderBy(s => s.ID);
