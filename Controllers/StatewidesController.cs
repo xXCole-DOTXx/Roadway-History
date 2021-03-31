@@ -8,11 +8,31 @@ using System.Web;
 using System.Web.Mvc;
 using Roadway_History.Models;
 using PagedList;
+using System.Security.Principal;
+using System.Security;
+
 
 namespace Roadway_History.Controllers
 {
     public class StatewidesController : Controller
     {
+        //public static bool IsInGroup(string groupName)
+        //{
+        //    var myIdentity = GetUserIDWithDomain();
+        //}
+        public static WindowsIdentity GetUserIdWithDomain()
+        {
+            var myIdentity = WindowsIdentity.GetCurrent();
+            return myIdentity;
+        }
+
+        public static string GetUserId()
+        {
+            var id = GetUserIdWithDomain().Name.Split('\\');
+            return id[1];
+        }
+
+
         private RoadWay_HistoryEntities db = new RoadWay_HistoryEntities();
 
         // GET: Statewides
@@ -90,7 +110,7 @@ namespace Roadway_History.Controllers
             }
             return View(statewide);
         }
-
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
         // GET: Statewides/Create
         public ActionResult Create()
         {
@@ -115,6 +135,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Statewides/Edit/5
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
         public ActionResult Edit(int? id)
         {
             if (id == null)

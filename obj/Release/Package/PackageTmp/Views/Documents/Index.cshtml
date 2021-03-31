@@ -1,0 +1,88 @@
+﻿@model PagedList.IPagedList<Roadway_History.Models.Document>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Documents";
+    <h2>Documents Index</h2>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+</p>
+
+@using (Html.BeginForm("Index", "Documents", FormMethod.Get))
+{
+    <p>
+        Find by Statewide ID: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Statewide ID", "Index", new { sortOrder = ViewBag.stateIDSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Doc Type
+        </th>
+        <th>
+            Order Date
+        </th>
+        <th>
+            Doc Location
+        </th>
+        <th>
+            File Contents
+        </th>
+        <th>
+            Comment
+        </th>
+        <th>
+            Source
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Statewide_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc_Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.File_Contents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

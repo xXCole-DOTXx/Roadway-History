@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RoadWay_HistoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Statewide_ID" Type="int" />
+    <Property Name="Doc_Type" Type="nvarchar" MaxLength="255" />
+    <Property Name="Order_Date" Type="datetime" />
+    <Property Name="Doc_Location" Type="nvarchar" MaxLength="255" />
+    <Property Name="File_Contents" Type="nvarchar" MaxLength="255" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="Source" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Statewide">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="COUNTY" Type="nvarchar" MaxLength="255" />
+    <Property Name="SignSys" Type="nvarchar" MaxLength="255" />
+    <Property Name="RouteNoOrigImport" Type="nvarchar" MaxLength="255" />
+    <Property Name="RouteNo" Type="int" />
+    <Property Name="SuppDes" Type="int" />
+    <Property Name="LocalName" Type="nvarchar" MaxLength="255" />
+    <Property Name="DateNumber" Type="datetime" />
+    <Property Name="Method" Type="nvarchar" MaxLength="255" />
+    <Property Name="OriginalL" Type="nvarchar" MaxLength="255" />
+    <Property Name="OriginalD" Type="nvarchar" MaxLength="255" />
+    <Property Name="Projects" Type="nvarchar(max)" />
+    <Property Name="Documents" Type="nvarchar(max)" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="District" Type="int" />
+    <Property Name="Duplicate OK" Type="bit" Nullable="false" />
+    <Property Name="RightofWay" Type="nvarchar" MaxLength="255" />
+    <Property Name="ReservedRoute" Type="bit" Nullable="false" />
+    <Property Name="ReservedBy" Type="nvarchar(max)" />
+    <Property Name="ReservedDate" Type="datetime" />
+    <Property Name="CP_WorkCompleted" Type="bit" Nullable="false" />
+    <Property Name="Work_Comments" Type="nvarchar" MaxLength="255" />
+    <Property Name="CP_ProjectNo" Type="nvarchar" MaxLength="255" />
+    <Property Name="ReservedCat" Type="int" />
+  </EntityType>
+  <Association Name="FK_Documents_Statewide">
+    <End Role="Statewide" Type="Self.Statewide" Multiplicity="0..1" />
+    <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statewide">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="Statewide_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RoadWay_HistoryModelStoreContainer">
+    <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Statewide" EntityType="Self.Statewide" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Documents_Statewide" Association="Self.FK_Documents_Statewide">
+      <End Role="Statewide" EntitySet="Statewide" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
