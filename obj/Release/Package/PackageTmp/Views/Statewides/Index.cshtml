@@ -13,7 +13,6 @@
     {
     @Html.ActionLink("Create New", "Create")
     }
-
 </p>
 
 @using (Html.BeginForm("Index", "Statewides", FormMethod.Get))
@@ -94,73 +93,77 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.COUNTY)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SignSys)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RouteNoOrigImport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RouteNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuppDes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocalName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Method)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OriginalL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OriginalD)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Projects)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Documents)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comments)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.District)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RightofWay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Work_Comments)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CP_ProjectNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservedCat)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.COUNTY)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SignSys)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RouteNoOrigImport)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RouteNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SuppDes)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LocalName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Method)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OriginalL)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OriginalD)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Projects)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Documents)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Comments)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.District)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RightofWay)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReservedBy)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReservedDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Work_Comments)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CP_ProjectNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReservedCat)
+    </td>
+
+    @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
+    {    
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+    }
+</tr>
     }
 
 </table>

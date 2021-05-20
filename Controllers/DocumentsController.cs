@@ -16,7 +16,7 @@ namespace Roadway_History.Controllers
         private RoadWay_HistoryEntities db = new RoadWay_HistoryEntities();
 
         // GET: Documents
-        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, int? statewideID)
         {
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID_desc" : "";
             ViewBag.stateIDSortParm = sortOrder == "stateID" ? "state_desc" : "stateID";
@@ -40,7 +40,12 @@ namespace Roadway_History.Controllers
                 documents = documents.Where(s => s.Statewide_ID.ToString().Contains(searchString));
             }
 
-            switch (sortOrder)
+            if (statewideID != null)
+            {
+                documents = documents.Where(s => s.Statewide_ID == statewideID);
+            }
+
+                switch (sortOrder)
             {
                 case "ID_desc":
                     documents = documents.OrderByDescending(s => s.ID);
