@@ -25,6 +25,7 @@
 
 <table class="table">
     <tr>
+        <th></th>
         <th>
             @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
@@ -94,6 +95,12 @@
     @foreach (var item in Model)
     {
 <tr>
+    <td>
+        @Html.ActionLink("Documents", "Index", "Documents", new { statewideID = item.ID }, new { @class = "btn btn-primary btn-large" })
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID)
+    </td>
     <td>
         @Html.DisplayFor(modelItem => item.COUNTY)
     </td>

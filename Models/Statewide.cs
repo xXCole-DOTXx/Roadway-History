@@ -44,6 +44,9 @@ namespace Roadway_History.Models
         public string Work_Comments { get; set; }
         public string CP_ProjectNo { get; set; }
         public Nullable<int> ReservedCat { get; set; }
+        public string Current_Status { get; set; }
+        public string Add_User { get; set; }
+        public Nullable<System.DateTime> Date_Added { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Document> Documents1 { get; set; }

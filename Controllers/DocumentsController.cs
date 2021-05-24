@@ -92,7 +92,7 @@ namespace Roadway_History.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source")] Document document)
+        public ActionResult Create([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source,Latitude,Longitude")] Document document)
         {
             if (ModelState.IsValid)
             {
@@ -124,7 +124,7 @@ namespace Roadway_History.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source")] Document document)
+        public ActionResult Edit([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source,Latitude,Longitude")] Document document)
         {
             if (ModelState.IsValid)
             {

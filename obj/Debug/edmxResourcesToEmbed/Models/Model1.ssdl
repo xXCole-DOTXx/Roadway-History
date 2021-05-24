@@ -6,27 +6,32 @@
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="Statewide_ID" Type="int" />
-    <Property Name="Doc_Type" Type="nvarchar" MaxLength="255" />
-    <Property Name="Order_Date" Type="datetime" />
-    <Property Name="Doc_Location" Type="nvarchar" MaxLength="255" />
-    <Property Name="File_Contents" Type="nvarchar" MaxLength="255" />
+    <Property Name="Doc_Type" Type="nvarchar" MaxLength="25" />
+    <Property Name="Order_Date" Type="date" />
+    <Property Name="Doc_Location" Type="nvarchar" MaxLength="25" />
+    <Property Name="File_Contents" Type="nvarchar" MaxLength="25" />
     <Property Name="Comment" Type="nvarchar(max)" />
     <Property Name="Source" Type="nvarchar(max)" />
+    <Property Name="Latitude" Type="nvarchar" MaxLength="20" />
+    <Property Name="Longitude" Type="nvarchar" MaxLength="20" />
+    <Property Name="PathToFile" Type="nvarchar(max)" />
+    <Property Name="Add_User" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date_Added" Type="date" />
   </EntityType>
   <EntityType Name="Statewide">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="COUNTY" Type="nvarchar" MaxLength="255" />
-    <Property Name="SignSys" Type="nvarchar" MaxLength="255" />
-    <Property Name="RouteNoOrigImport" Type="nvarchar" MaxLength="255" />
+    <Property Name="COUNTY" Type="nvarchar" MaxLength="25" />
+    <Property Name="SignSys" Type="nvarchar" MaxLength="10" />
+    <Property Name="RouteNoOrigImport" Type="nvarchar" MaxLength="10" />
     <Property Name="RouteNo" Type="int" />
     <Property Name="SuppDes" Type="int" />
     <Property Name="LocalName" Type="nvarchar" MaxLength="255" />
-    <Property Name="DateNumber" Type="datetime" />
-    <Property Name="Method" Type="nvarchar" MaxLength="255" />
-    <Property Name="OriginalL" Type="nvarchar" MaxLength="255" />
+    <Property Name="DateNumber" Type="date" />
+    <Property Name="Method" Type="nvarchar" MaxLength="100" />
+    <Property Name="OriginalL" Type="nvarchar" MaxLength="100" />
     <Property Name="OriginalD" Type="nvarchar" MaxLength="255" />
     <Property Name="Projects" Type="nvarchar(max)" />
     <Property Name="Documents" Type="nvarchar(max)" />
@@ -36,11 +41,14 @@
     <Property Name="RightofWay" Type="nvarchar" MaxLength="255" />
     <Property Name="ReservedRoute" Type="bit" Nullable="false" />
     <Property Name="ReservedBy" Type="nvarchar(max)" />
-    <Property Name="ReservedDate" Type="datetime" />
+    <Property Name="ReservedDate" Type="date" />
     <Property Name="CP_WorkCompleted" Type="bit" Nullable="false" />
-    <Property Name="Work_Comments" Type="nvarchar" MaxLength="255" />
-    <Property Name="CP_ProjectNo" Type="nvarchar" MaxLength="255" />
+    <Property Name="Work_Comments" Type="nvarchar" MaxLength="10" />
+    <Property Name="CP_ProjectNo" Type="nvarchar" MaxLength="25" />
     <Property Name="ReservedCat" Type="int" />
+    <Property Name="Current_Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="Add_User" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date_Added" Type="date" />
   </EntityType>
   <Association Name="FK_Documents_Statewide">
     <End Role="Statewide" Type="Self.Statewide" Multiplicity="0..1" />

@@ -5,6 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>\\dotb6dwtest01v\roadwayhistory</_PublishTargetUrl>
+    <History>True|2021-05-20T19:56:40.0843266Z;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Assets/DOH banner.png">
@@ -41,10 +42,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/01/2021 10:45:05</publishTime>
     </File>
     <File Include="bin/Roadway_History.dll">
-      <publishTime>04/01/2021 10:51:49</publishTime>
+      <publishTime>05/20/2021 15:56:39</publishTime>
     </File>
     <File Include="bin/Roadway_History.pdb">
-      <publishTime>04/01/2021 10:51:49</publishTime>
+      <publishTime>05/20/2021 15:56:39</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>04/01/2021 10:45:04</publishTime>
@@ -353,7 +354,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/01/2021 10:45:02</publishTime>
     </File>
     <File Include="Views/Statewides/Index.cshtml">
-      <publishTime>04/01/2021 10:47:21</publishTime>
+      <publishTime>05/20/2021 15:55:53</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>04/01/2021 10:45:02</publishTime>

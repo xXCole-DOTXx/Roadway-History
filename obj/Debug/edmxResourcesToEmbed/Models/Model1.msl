@@ -4,6 +4,11 @@
     <EntitySetMapping Name="Documents">
       <EntityTypeMapping TypeName="RoadWay_HistoryModel.Document">
         <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Add_User" ColumnName="Add_User" />
+          <ScalarProperty Name="PathToFile" ColumnName="PathToFile" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Statewide_ID" ColumnName="Statewide_ID" />
           <ScalarProperty Name="Doc_Type" ColumnName="Doc_Type" />
@@ -18,6 +23,9 @@
     <EntitySetMapping Name="Statewides">
       <EntityTypeMapping TypeName="RoadWay_HistoryModel.Statewide">
         <MappingFragment StoreEntitySet="Statewide">
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Add_User" ColumnName="Add_User" />
+          <ScalarProperty Name="Current_Status" ColumnName="Current_Status" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="COUNTY" ColumnName="COUNTY" />
           <ScalarProperty Name="SignSys" ColumnName="SignSys" />

@@ -46,6 +46,12 @@
         <th>
             Source
         </th>
+        <th>
+            Latitude
+        </th>
+        <th>
+            Longitude
+        </th>
         <th></th>
     </tr>
 
@@ -72,6 +78,12 @@
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.Source)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Latitude)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Longitude)
     </td>
     @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
     {
