@@ -72,13 +72,22 @@
             District
         </th>
         <th>
+            Duplicate Ok?
+        </th>
+        <th>
             Right of Way
+        </th>
+        <th>
+            Reserved Route?
         </th>
         <th>
             Reversed By
         </th>
         <th>
             Reserved Date
+        </th>
+        <th>
+            CP Work Completed?
         </th>
         <th>
             Work Comments
@@ -88,6 +97,9 @@
         </th>
         <th>
             Reserved Cat
+        </th>
+        <th>
+            Current Status
         </th>
         <th></th>
     </tr>
@@ -144,13 +156,22 @@
         @Html.DisplayFor(modelItem => item.District)
     </td>
     <td>
+        @Html.DisplayFor(modelItem => item.Duplicate_OK)
+    </td>
+    <td>
         @Html.DisplayFor(modelItem => item.RightofWay)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReservedRoute)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.ReservedBy)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.ReservedDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CP_WorkCompleted)
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.Work_Comments)
@@ -161,14 +182,17 @@
     <td>
         @Html.DisplayFor(modelItem => item.ReservedCat)
     </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Current_Status)
+    </td>
 
     @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
-    {    
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-    </td>
+    {
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
     }
 </tr>
     }
