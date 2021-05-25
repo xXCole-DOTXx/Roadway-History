@@ -122,10 +122,13 @@ namespace Roadway_History.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,COUNTY,SignSys,RouteNoOrigImport,RouteNo,SuppDes,LocalName,DateNumber,Method,OriginalL,OriginalD,Projects,Documents,Comments,District,Duplicate_OK,RightofWay,ReservedRoute,ReservedBy,ReservedDate,CP_WorkCompleted,Work_Comments,CP_ProjectNo,ReservedCat,CurrentStatus")] Statewide statewide)
+        public ActionResult Create([Bind(Include = "ID,COUNTY,SignSys,RouteNoOrigImport,RouteNo,SuppDes,LocalName,DateNumber,Method,OriginalL,OriginalD,Projects,Documents,Comments,District,Duplicate_OK,RightofWay,ReservedRoute,ReservedBy,ReservedDate,CP_WorkCompleted,Work_Comments,CP_ProjectNo,ReservedCat,CurrentStatus,Add_User,Date_Added")] Statewide statewide)
         {
             if (ModelState.IsValid)
             {
+                var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                statewide.Add_User = userName;
+                statewide.Date_Added = DateTime.Today;
                 db.Statewides.Add(statewide);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -92,10 +92,13 @@ namespace Roadway_History.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source,Latitude,Longitude")] Document document)
+        public ActionResult Create([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source,Latitude,Longitude,Add_User,Date_Added")] Document document)
         {
             if (ModelState.IsValid)
             {
+                var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+                document.Add_User = userName;
+                document.Date_Added = DateTime.Today;
                 db.Documents.Add(document);
                 db.SaveChanges();
                 return RedirectToAction("Index");
