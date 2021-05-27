@@ -25,8 +25,22 @@
     <div class="form-group">
         @Html.LabelFor(model => model.SignSys, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.SignSys, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SignSys, "", new { @class = "text-danger" })
+            @Html.DropDownList("SignSys", new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Interstate", Value="1"  },
+                new SelectListItem {Text = "US", Value="2"  },
+                new SelectListItem {Text = "WV", Value="3"  },
+                new SelectListItem {Text = "CO", Value="4"  },
+                new SelectListItem {Text = "N/A", Value="5"  },
+                new SelectListItem {Text = "State Park and Forest Road", Value="6"  },
+                new SelectListItem {Text = "FANS", Value="7"  },
+                new SelectListItem {Text = "HARP", Value="8"  },
+                new SelectListItem {Text = "Other", Value="9"  },
+                new SelectListItem {Text = "MNS", Value="0"  },
+                new SelectListItem {Text = "Railroad", Value="R"  },
+                new SelectListItem {Text = "Trail", Value="T"  },
+                new SelectListItem {Text = "USFR", Value="U"  }
+            }, new { @class = "form-control" })
         </div>
     </div>
 
@@ -53,6 +67,48 @@
             @Html.ValidationMessageFor(model => model.SuppDes, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SuppDes, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("SuppDes", new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Not Applicable", Value="00"  },
+                new SelectListItem {Text = "Alternate", Value="01"  },
+                new SelectListItem {Text = "Wye", Value="02"  },
+                new SelectListItem {Text = "Spur", Value="03"  },
+                new SelectListItem {Text = "North", Value="04"  },
+                new SelectListItem {Text = "South", Value="05"  },
+                new SelectListItem {Text = "East", Value="06"  },
+                new SelectListItem {Text = "West", Value="07"  },
+                new SelectListItem {Text = "Business", Value="08"  },
+                new SelectListItem {Text = "North Bound", Value="09"  },
+                new SelectListItem {Text = "South Bound", Value="10"  },
+                new SelectListItem {Text = "East Bound", Value="11"  },
+                new SelectListItem {Text = "West Bound", Value="12"  },
+                new SelectListItem {Text = "Truck Route", Value="13"  },
+                new SelectListItem {Text = "Bypass", Value="14"  },
+                new SelectListItem {Text = "Loop", Value="15"  },
+                new SelectListItem {Text = "Toll", Value="16"  },
+                new SelectListItem {Text = "Ramp", Value="17"  },
+                new SelectListItem {Text = "Other", Value="18"  },
+                new SelectListItem {Text = "City St. Non-State", Value="19"  },
+                new SelectListItem {Text = "Road Under Construction", Value="20"  },
+                new SelectListItem {Text = "Footbridge", Value="21"  },
+                new SelectListItem {Text = "Historical Bridge", Value="22"  },
+                new SelectListItem {Text = "Connector", Value="23"  },
+                new SelectListItem {Text = "New/Proposed", Value="24"  },
+                new SelectListItem {Text = "Crossover", Value="25"  },
+                new SelectListItem {Text = "Emergency Crossover", Value="26"  },
+                new SelectListItem {Text = "Left Turn Lane", Value="27"  },
+                new SelectListItem {Text = "Right Turn Lane", Value="28"  },
+                new SelectListItem {Text = "Rail Trail", Value="51"  },
+                new SelectListItem {Text = "Abandoned", Value="99"  }
+            }, new { @class = "form-control" })
+        </div>
+    </div>
+
+
 
     <div class="form-group">
         @Html.LabelFor(model => model.LocalName, htmlAttributes: new { @class = "control-label col-md-2" })
