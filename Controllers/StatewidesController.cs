@@ -38,7 +38,7 @@ namespace Roadway_History.Controllers
         // GET: Statewides
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID_desc" : "";
+            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID" : "";
             ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
             ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";
             ViewBag.OGrouteSortParm = sortOrder == "OGroute" ? "OGroute_desc" : "OGroute";
@@ -65,8 +65,8 @@ namespace Roadway_History.Controllers
 
             switch (sortOrder)
             {
-                case "ID_desc":
-                    statewides = statewides.OrderByDescending(s => s.ID);
+                case "ID":
+                    statewides = statewides.OrderBy(s => s.ID);
                     break;
                 case "county":
                     statewides = statewides.OrderBy(s => s.COUNTY);
@@ -87,11 +87,11 @@ namespace Roadway_History.Controllers
                     statewides = statewides.OrderByDescending(s => s.RouteNoOrigImport);
                     break;
                 default:
-                    statewides = statewides.OrderBy(s => s.ID);
+                    statewides = statewides.OrderByDescending(s => s.ID);
                     break;
             }
 
-            int pageSize = 1000;
+            int pageSize = 100;
             int pageNumber = (page ?? 1);
             return View(statewides.ToPagedList(pageNumber, pageSize));
         }

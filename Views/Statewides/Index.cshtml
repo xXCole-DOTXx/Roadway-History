@@ -4,7 +4,7 @@
 
 @{
     ViewBag.Title = "Statewide";
-    <h2>Statewides Index</h2>
+    <h2 style="text-align: center">Roadway History Index</h2>
 }
 
 
@@ -18,13 +18,14 @@
 @using (Html.BeginForm("Index", "Statewides", FormMethod.Get))
 {
     <p>
-        Find by county: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
         <input type="submit" value="Search" />
     </p>
 }
 
 <table class="table">
     <tr>
+        <th></th>
         <th></th>
         <th>
             @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -101,7 +102,6 @@
         <th>
             Current Status
         </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -109,6 +109,9 @@
 <tr>
     <td>
         @Html.ActionLink("Documents", "Index", "Documents", new { statewideID = item.ID }, new { @class = "btn btn-primary btn-large" })
+    </td>
+    <td>
+     
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.ID)
@@ -185,15 +188,6 @@
     <td>
         @Html.DisplayFor(modelItem => item.Current_Status)
     </td>
-
-    @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
-    {
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-        </td>
-    }
 </tr>
     }
 
