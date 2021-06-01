@@ -64,7 +64,10 @@ namespace Roadway_History.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 statewides = statewides.Where(s => s.COUNTY.Contains(searchString)
-                                             || s.RouteNoOrigImport.Contains(searchString));
+                                             || s.RouteNoOrigImport.Contains(searchString)
+                                             || s.RouteNo.ToString().Contains(searchString)
+                                             || s.LocalName.Contains(searchString)
+                                             || s.Current_Status.Contains(searchString));
             }
 
             switch (sortOrder)
