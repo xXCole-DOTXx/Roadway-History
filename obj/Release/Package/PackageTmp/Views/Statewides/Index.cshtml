@@ -52,6 +52,7 @@
         <th>
             @Html.ActionLink("Current Status", "Index", new { sortOrder = ViewBag.StatusSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -61,7 +62,14 @@
                 @Html.ActionLink("Documents", "Index", "Documents", new { statewideID = item.ID }, new { @class = "btn btn-primary btn-large" })
             </td>
             <td>
-                <p>Edit</p>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
+                }
+                @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
+                {
+                    @Html.ActionLink("Details", "Details", new { id = item.ID })
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ID)
@@ -86,6 +94,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Current_Status)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-large" })
             </td>
         </tr>
     }

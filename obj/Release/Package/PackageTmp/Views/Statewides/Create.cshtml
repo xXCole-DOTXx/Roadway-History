@@ -17,8 +17,64 @@
     <div class="form-group">
         @Html.LabelFor(model => model.COUNTY, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.COUNTY, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.COUNTY, "", new { @class = "text-danger" })
+            @Html.DropDownList("COUNTY", new List<SelectListItem>
+            {
+                new SelectListItem {Text = "BARBOUR", Value="BARBOUR"  },
+                new SelectListItem {Text = "BERKELEY", Value="BERKELEY"  },
+                new SelectListItem {Text = "BOONE", Value="BOONE"  },
+                new SelectListItem {Text = "BRAXTON", Value="BRAXTON"  },
+                new SelectListItem {Text = "BROOKE", Value="BROOKE"  },
+                new SelectListItem {Text = "CABELL", Value="CABELL"  },
+                new SelectListItem {Text = "CALHOUN", Value="CALHOUN"  },
+                new SelectListItem {Text = "CLAY", Value="CLAY"  },
+                new SelectListItem {Text = "DODDRIDGE", Value="DODDRIDGE"  },
+                new SelectListItem {Text = "FAYETTE", Value="FAYETTE"  },
+                new SelectListItem {Text = "GILMER", Value="GILMER"  },
+                new SelectListItem {Text = "GRANT", Value="GRANT"  },
+                new SelectListItem {Text = "GREENBRIER", Value="GREENBRIER"  },
+                new SelectListItem {Text = "HAMPSHIRE", Value="HAMPSHIRE"  },
+                new SelectListItem {Text = "HANCOCK", Value="HANCOCK'"  },
+                new SelectListItem {Text = "HARDY", Value="HARDY"  },
+                new SelectListItem {Text = "HARRISON", Value="HARRISON"  },
+                new SelectListItem {Text = "JACKSON", Value="JACKSON"  },
+                new SelectListItem {Text = "JEFFERSON", Value="JEFFERSON"  },
+                new SelectListItem {Text = "KANAWHA", Value="KANAWHA"  },
+                new SelectListItem {Text = "LEWIS", Value="LEWIS"  },
+                new SelectListItem {Text = "LINCOLN", Value="LINCOLN"  },
+                new SelectListItem {Text = "LOGAN", Value="LOGAN"  },
+                new SelectListItem {Text = "MCDOWELL", Value="MCDOWELL"  },
+                new SelectListItem {Text = "MARION", Value="MARION"  },
+                new SelectListItem {Text = "MARSHALL", Value="MARSHALL"  },
+                new SelectListItem {Text = "MASON", Value="MASON"  },
+                new SelectListItem {Text = "MERCER", Value="MERCER"  },
+                new SelectListItem {Text = "MINERAL", Value="MINERAL"  },
+                new SelectListItem {Text = "MINGO", Value="MINGO"  },
+                new SelectListItem {Text = "MONONGALIA", Value="MONONGALIA"  },
+                new SelectListItem {Text = "MONROE", Value="MONROE"  },
+                new SelectListItem {Text = "MORGAN", Value="MORGAN"  },
+                new SelectListItem {Text = "NICHOLAS", Value="NICHOLAS"  },
+                new SelectListItem {Text = "OHIO", Value="OHIO"  },
+                new SelectListItem {Text = "PENDLETON", Value="PENDLETON"  },
+                new SelectListItem {Text = "PLEASANTS", Value="PLEASANTS"  },
+                new SelectListItem {Text = "POCAHONTAS", Value="POCAHONTAS"  },
+                new SelectListItem {Text = "PRESTON", Value="PRESTON"  },
+                new SelectListItem {Text = "PUTNAM", Value="PUTNAM"  },
+                new SelectListItem {Text = "RALEIGH", Value="RALEIGH'"  },
+                new SelectListItem {Text = "RANDOLPH", Value="RANDOLPH"  },
+                new SelectListItem {Text = "RITCHIE", Value="RITCHIE"  },
+                new SelectListItem {Text = "ROANE", Value="ROANE"  },
+                new SelectListItem {Text = "SUMMERS", Value="SUMMERS"  },
+                new SelectListItem {Text = "TAYLOR", Value="TAYLOR"  },
+                new SelectListItem {Text = "TUCKER", Value="TUCKER"  },
+                new SelectListItem {Text = "TYLER", Value="TYLER"  },
+                new SelectListItem {Text = "UPSHUR", Value="UPSHUR"  },
+                new SelectListItem {Text = "WAYNE", Value="WAYNE"  },
+                new SelectListItem {Text = "WEBSTER", Value="WEBSTER"  },
+                new SelectListItem {Text = "WETZEL", Value="WETZEL"  },
+                new SelectListItem {Text = "WIRT", Value="WIRT"  },
+                new SelectListItem {Text = "WOOD", Value="WOOD"  },
+                new SelectListItem {Text = "WYOMING", Value="WYOMING"  }
+            }, new { @class = "form-control" })
         </div>
     </div>
 
@@ -263,8 +319,12 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Current_Status, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Current_Status, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Current_Status, "", new { @class = "text-danger" })
+            @Html.DropDownList("Current_Status", new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Pending", Value="Pending"  },
+                new SelectListItem {Text = "In Progress", Value="In Progress"  },
+                new SelectListItem {Text = "Complete", Value="Complete"  }
+            }, new { @class = "form-control" })
         </div>
     </div>
 
