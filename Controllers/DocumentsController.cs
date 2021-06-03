@@ -20,6 +20,7 @@ namespace Roadway_History.Controllers
         {
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID_desc" : "";
             ViewBag.stateIDSortParm = sortOrder == "stateID" ? "state_desc" : "stateID";
+            ViewBag.DateSortParm = sortOrder == "date" ? "date_desc" : "date";
 
             if (searchString != null)
             {
@@ -37,7 +38,8 @@ namespace Roadway_History.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                documents = documents.Where(s => s.Statewide_ID.ToString().Contains(searchString));
+                documents = documents.Where(s => s.Order_Date.ToString().Contains(searchString)
+                                               || s.Comment.Contains(searchString));
             }
 
             if (statewideID != null)
@@ -56,12 +58,18 @@ namespace Roadway_History.Controllers
                 case "state_desc":
                     documents = documents.OrderByDescending(s => s.Statewide_ID);
                     break;
+                case "date":
+                    documents = documents.OrderBy(s => s.Order_Date);
+                    break;
+                case "date_desc":
+                    documents = documents.OrderByDescending(s => s.Order_Date);
+                    break;
                 default:
                     documents = documents.OrderBy(s => s.ID);
                     break;
             }
 
-            int pageSize = 1000;
+            int pageSize = 100;
             int pageNumber = (page ?? 1);
             return View(documents.ToPagedList(pageNumber, pageSize));
         }

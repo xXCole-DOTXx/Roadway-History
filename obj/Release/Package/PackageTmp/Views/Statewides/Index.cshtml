@@ -29,9 +29,6 @@
         <th></th>
         <th></th>
         <th>
-            @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm, currentFilter = ViewBag.CurrentFilter })
-        </th>
-        <th>
             @Html.ActionLink("County", "Index", new { sortOrder = ViewBag.countySortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
@@ -59,7 +56,10 @@
     {
         <tr>
             <td>
-                @Html.ActionLink("Documents", "Index", "Documents", new { statewideID = item.ID }, new { @class = "btn btn-primary btn-large" })
+                <!--Html.ActionLink("Documents", "Index", "Documents", new { statewideID = item.ID }, new { class = "btn btn-primary btn-large" }) -->
+                <a href="@Url.Action("Index", "Documents", new { statewideID = item.ID })" title="Documents" class="links">
+                    <img alt="Documents" src="@Url.Content("~/Assets/documents.png")">
+                </a>
             </td>
             <td>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
@@ -70,9 +70,6 @@
                 {
                     @Html.ActionLink("Details", "Details", new { id = item.ID })
                 }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.COUNTY)

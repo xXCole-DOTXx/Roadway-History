@@ -164,6 +164,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\documents.png" />
     <Content Include="Assets\DOH banner.png" />
     <Content Include="Assets\logo.jpg" />
     <Content Include="Assets\resource.PNG" />
