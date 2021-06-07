@@ -281,13 +281,13 @@ namespace Roadway_History.Controllers
                 {
                     statewides = statewides.Where(s => s.COUNTY.Contains(countySearch));
 
-                    if (!String.IsNullOrEmpty(routeSearch))
+                    if (!String.IsNullOrEmpty(signSearch))
                     {
-                        statewides = statewides.Where(s => s.RouteNo.ToString().Contains(routeSearch));
+                        statewides = statewides.Where(s => s.SignSys.ToString().Contains(signSearch));
 
-                        if (!String.IsNullOrEmpty(signSearch))
+                        if (!String.IsNullOrEmpty(routeSearch))
                         {
-                            statewides = statewides.Where(s => s.SignSys.ToString().Contains(signSearch));
+                            statewides = statewides.Where(s => s.RouteNo.ToString().Contains(routeSearch));
                         }
                     }
                 }
