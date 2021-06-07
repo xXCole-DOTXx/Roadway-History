@@ -127,6 +127,230 @@ namespace Roadway_History.Controllers
             return View(statewides.ToPagedList(pageNumber, pageSize));
         }
 
+        public ActionResult ReservedRoutes(string sortOrder, string currentFilter, string searchString, int? page, string countyFilter, string countySearch)
+        {
+            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID" : "";
+            ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
+            ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";
+            ViewBag.OGrouteSortParm = sortOrder == "OGroute" ? "OGroute_desc" : "OGroute";
+            ViewBag.SignSortParm = sortOrder == "sign" ? "sign_desc" : "sign";
+            ViewBag.SuppSortParm = sortOrder == "supp" ? "supp_desc" : "supp";
+            ViewBag.LocalNameSortParm = sortOrder == "local" ? "local_desc" : "local";
+            ViewBag.StatusSortParm = sortOrder == "status" ? "status_desc" : "status";
+
+            //Search string
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            //County Search string
+            if (countySearch != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                countySearch = countyFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+            ViewBag.CountyFilter = countySearch;
+
+            var statewides = from s in db.Statewides
+                             select s;
+
+            statewides = statewides.Where(s => s.ReservedRoute == true);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                statewides = statewides.Where(s => s.District.ToString().Contains(searchString));
+
+            }
+
+            if (!String.IsNullOrEmpty(countySearch))
+            {
+                statewides = statewides.Where(s => s.COUNTY.ToString().Contains(countySearch));
+            }
+
+            switch (sortOrder)
+            {
+                case "ID":
+                    statewides = statewides.OrderBy(s => s.ID);
+                    break;
+                case "county":
+                    statewides = statewides.OrderBy(s => s.COUNTY);
+                    break;
+                case "county_desc":
+                    statewides = statewides.OrderByDescending(s => s.COUNTY);
+                    break;
+                case "route":
+                    statewides = statewides.OrderBy(s => s.RouteNo);
+                    break;
+                case "route_desc":
+                    statewides = statewides.OrderByDescending(s => s.RouteNo);
+                    break;
+                case "OGroute":
+                    statewides = statewides.OrderBy(s => s.RouteNoOrigImport);
+                    break;
+                case "OGroute_desc":
+                    statewides = statewides.OrderByDescending(s => s.RouteNoOrigImport);
+                    break;
+                case "sign":
+                    statewides = statewides.OrderBy(s => s.SignSys);
+                    break;
+                case "sign_desc":
+                    statewides = statewides.OrderByDescending(s => s.SignSys);
+                    break;
+                case "supp":
+                    statewides = statewides.OrderBy(s => s.SuppDes);
+                    break;
+                case "supp_desc":
+                    statewides = statewides.OrderByDescending(s => s.SuppDes);
+                    break;
+                case "local":
+                    statewides = statewides.OrderBy(s => s.LocalName);
+                    break;
+                case "local_desc":
+                    statewides = statewides.OrderByDescending(s => s.LocalName);
+                    break;
+                case "status":
+                    statewides = statewides.OrderBy(s => s.Current_Status);
+                    break;
+                case "status_desc":
+                    statewides = statewides.OrderByDescending(s => s.Current_Status);
+                    break;
+                default:
+                    statewides = statewides.OrderByDescending(s => s.ID);
+                    break;
+            }
+
+            int pageSize = 100;
+            int pageNumber = (page ?? 1);
+            return View(statewides.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult AdvancedSearch(string sortOrder, string DistrictFilter, string DistrictString, int? page, string CountyFilter, string countySearch, string routeFilter, string routeSearch, string signFilter, string signSearch)
+        {
+            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID" : "";
+            ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
+            ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";
+            ViewBag.OGrouteSortParm = sortOrder == "OGroute" ? "OGroute_desc" : "OGroute";
+            ViewBag.SignSortParm = sortOrder == "sign" ? "sign_desc" : "sign";
+            ViewBag.SuppSortParm = sortOrder == "supp" ? "supp_desc" : "supp";
+            ViewBag.LocalNameSortParm = sortOrder == "local" ? "local_desc" : "local";
+            ViewBag.StatusSortParm = sortOrder == "status" ? "status_desc" : "status";
+
+            if (DistrictString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                DistrictString = DistrictFilter;
+            }
+            if(countySearch != null)
+            {
+                System.Diagnostics.Debug.WriteLine("Doin fine.");
+            }
+            else
+            {
+                countySearch = CountyFilter;
+            }
+
+            ViewBag.DistrictFilter = DistrictString;
+            ViewBag.CountyFilter = countySearch;
+            ViewBag.signFilter = signSearch;
+            ViewBag.routeFilter = routeSearch;
+
+            System.Diagnostics.Debug.WriteLine("County was : " + countySearch);
+            System.Diagnostics.Debug.WriteLine("Route was : " + routeSearch);
+
+            var statewides = from s in db.Statewides
+                             select s;
+
+            if (!String.IsNullOrEmpty(DistrictString))
+            {
+                statewides = statewides.Where(s => s.District.ToString().Contains(DistrictString));
+
+                if (!String.IsNullOrEmpty(countySearch))
+                {
+                    statewides = statewides.Where(s => s.COUNTY.Contains(countySearch));
+
+                    if (!String.IsNullOrEmpty(routeSearch))
+                    {
+                        statewides = statewides.Where(s => s.RouteNo.ToString().Contains(routeSearch));
+
+                        if (!String.IsNullOrEmpty(signSearch))
+                        {
+                            statewides = statewides.Where(s => s.SignSys.ToString().Contains(signSearch));
+                        }
+                    }
+                }
+            }
+
+
+            switch (sortOrder)
+            {
+                case "ID":
+                    statewides = statewides.OrderBy(s => s.ID);
+                    break;
+                case "county":
+                    statewides = statewides.OrderBy(s => s.COUNTY);
+                    break;
+                case "county_desc":
+                    statewides = statewides.OrderByDescending(s => s.COUNTY);
+                    break;
+                case "route":
+                    statewides = statewides.OrderBy(s => s.RouteNo);
+                    break;
+                case "route_desc":
+                    statewides = statewides.OrderByDescending(s => s.RouteNo);
+                    break;
+                case "OGroute":
+                    statewides = statewides.OrderBy(s => s.RouteNoOrigImport);
+                    break;
+                case "OGroute_desc":
+                    statewides = statewides.OrderByDescending(s => s.RouteNoOrigImport);
+                    break;
+                case "sign":
+                    statewides = statewides.OrderBy(s => s.SignSys);
+                    break;
+                case "sign_desc":
+                    statewides = statewides.OrderByDescending(s => s.SignSys);
+                    break;
+                case "supp":
+                    statewides = statewides.OrderBy(s => s.SuppDes);
+                    break;
+                case "supp_desc":
+                    statewides = statewides.OrderByDescending(s => s.SuppDes);
+                    break;
+                case "local":
+                    statewides = statewides.OrderBy(s => s.LocalName);
+                    break;
+                case "local_desc":
+                    statewides = statewides.OrderByDescending(s => s.LocalName);
+                    break;
+                case "status":
+                    statewides = statewides.OrderBy(s => s.Current_Status);
+                    break;
+                case "status_desc":
+                    statewides = statewides.OrderByDescending(s => s.Current_Status);
+                    break;
+                default:
+                    statewides = statewides.OrderByDescending(s => s.ID);
+                    break;
+            }
+
+            int pageSize = 100;
+            int pageNumber = (page ?? 1);
+            return View(statewides.ToPagedList(pageNumber, pageSize));
+        }
+
         // GET: Statewides/Details/5
         public ActionResult Details(int? id)
         {

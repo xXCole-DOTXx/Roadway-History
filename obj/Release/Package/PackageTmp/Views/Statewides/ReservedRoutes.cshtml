@@ -3,39 +3,32 @@
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Statewide";
-    <h2 style="text-align: center">Roadway History Index</h2>
+    ViewBag.Title = "Reserved Routes";
+    <h2 style="text-align: center">Reserved Routes</h2>
 }
 
-<p style="text-align: center">
-    @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
-    {
-        @Html.ActionLink("Create New", "Create")
-    }
-</p>
-
-@using (Html.BeginForm("Index", "Statewides", FormMethod.Get))
+@using (Html.BeginForm("ReservedRoutes", "Statewides", FormMethod.Get))
 {
     <p style="text-align: center">
         @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search Districts" />
+    </p>
+    <br />
+    <p style="text-align: center">
+        @Html.TextBox("countySearch", ViewBag.CountyFilter as string)
+        <input type="submit" value="Search Counties" />
     </p>
 }
 
 <br />
 
-<div style="text-align: center">
-    @Html.ActionLink("Advanced Search", "AdvancedSearch", new { id = "" }, new { @class = "btn btn-primary btn-large" })
-</div>
-<br />
-
-
 <table class="table">
     <tr>
-        <th></th>
-        <th></th>
         <th>
             @Html.ActionLink("County", "Index", new { sortOrder = ViewBag.countySortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            District
         </th>
         <th>
             @Html.ActionLink("Sign System", "Index", new { sortOrder = ViewBag.SignSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -55,30 +48,16 @@
         <th>
             @Html.ActionLink("Current Status", "Index", new { sortOrder = ViewBag.StatusSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                <!--Html.ActionLink("Documents", "Index", "Documents", new { statewideID = item.ID }, new { class = "btn btn-primary btn-large" }) -->
-                <a href="@Url.Action("Index", "Documents", new { statewideID = item.ID })" title="Documents" class="links">
-                    <img alt="Documents" src="@Url.Content("~/Assets/documents.png")">
-                </a>
-            </td>
-            <td>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-                }
-                @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
-                {
-                    @Html.ActionLink("Details", "Details", new { id = item.ID })
-                }
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.COUNTY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.District)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SignSys)
@@ -97,9 +76,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Current_Status)
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-large" })
             </td>
         </tr>
     }

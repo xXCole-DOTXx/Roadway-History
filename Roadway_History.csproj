@@ -167,7 +167,7 @@
     <Content Include="Assets\documents.png" />
     <Content Include="Assets\DOH banner.png" />
     <Content Include="Assets\logo.jpg" />
-    <Content Include="Assets\resource.PNG" />
+    <Content Include="Assets\resource1.PNG" />
     <Content Include="Assets\WVDOT.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -232,6 +232,8 @@
     <Content Include="Views\Statewides\Details.cshtml" />
     <Content Include="Views\Statewides\Edit.cshtml" />
     <Content Include="Views\Statewides\Index.cshtml" />
+    <Content Include="Views\Statewides\ReservedRoutes.cshtml" />
+    <Content Include="Views\Statewides\AdvancedSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

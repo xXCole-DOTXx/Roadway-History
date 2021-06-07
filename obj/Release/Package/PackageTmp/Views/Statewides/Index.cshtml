@@ -24,6 +24,12 @@
 
 <br />
 
+<div style="text-align: center">
+    @Html.ActionLink("Advanced Search", "AdvancedSearch", new { id = "" }, new { @class = "btn btn-primary btn-large" })
+</div>
+<br />
+
+
 <table class="table">
     <tr>
         <th></th>
@@ -64,7 +70,7 @@
             <td>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID })
                 }
                 @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
                 {
