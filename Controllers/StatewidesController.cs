@@ -38,6 +38,8 @@ namespace Roadway_History.Controllers
         // GET: Statewides
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+     
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID" : "";
             ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
             ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";
