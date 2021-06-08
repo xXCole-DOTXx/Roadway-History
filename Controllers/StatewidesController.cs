@@ -253,22 +253,11 @@ namespace Roadway_History.Controllers
             {
                 DistrictString = DistrictFilter;
             }
-            if(countySearch != null)
-            {
-                System.Diagnostics.Debug.WriteLine("Doin fine.");
-            }
-            else
-            {
-                countySearch = CountyFilter;
-            }
 
             ViewBag.DistrictFilter = DistrictString;
             ViewBag.CountyFilter = countySearch;
             ViewBag.signFilter = signSearch;
             ViewBag.routeFilter = routeSearch;
-
-            System.Diagnostics.Debug.WriteLine("County was : " + countySearch);
-            System.Diagnostics.Debug.WriteLine("Route was : " + routeSearch);
 
             var statewides = from s in db.Statewides
                              select s;

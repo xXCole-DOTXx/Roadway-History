@@ -1,16 +1,17 @@
 ﻿@model PagedList.IPagedList<Roadway_History.Models.Statewide>
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Styles/Statewides/AdvancedSearchStyles.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Advanced Search";
     <h2 style="text-align: center">Advanced Search</h2>
 }
 
-<div style="text-align: center">
+<div>
     @using (Html.BeginForm("AdvancedSearch", "Statewides", FormMethod.Get))
     {
-        <p style="text-align: center;">
+        <p class="dropDown">
             @Html.DropDownList("DistrictString", new List<SelectListItem>
             {
                 new SelectListItem {Text = "1", Value="1"  },
@@ -24,15 +25,15 @@
                 new SelectListItem {Text = "9", Value="9"  },
                 new SelectListItem {Text = "10", Value="10"  }
             }, new { @class = "form-control" })
-            <input type="submit" value="Search Districts" />
         </p>
+        <p class="dropButton"><input type="submit" value="Search Districts" /></p>
         <br />
 
         if (!String.IsNullOrEmpty(ViewBag.DistrictFilter))
         {
             if (Int32.Parse(ViewBag.DistrictFilter) == 1)
             {
-                <p style="text-align: center;">
+                <p class="dropDown">
                     @Html.DropDownList("countySearch", new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Boone", Value="Boone"  },
@@ -41,12 +42,12 @@
                         new SelectListItem {Text = "Mason", Value="Mason"  },
                         new SelectListItem {Text = "Putnam", Value="Putnam"  },
                     }, new { @class = "form-control" })
-                    <input type="submit" value="Search Counties" />
                 </p>
+                <p class="dropButton"><input type="submit" value="Search Counties" /></p>
             }
             else if (Int32.Parse(ViewBag.DistrictFilter) == 2)
             {
-                <p style="text-align: center;">
+                <p class="dropDown">
                     @Html.DropDownList("countySearch", new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Cabell", Value="Cabell"  },
@@ -55,12 +56,12 @@
                         new SelectListItem {Text = "Mingo", Value="Mingo"  },
                         new SelectListItem {Text = "Wayne", Value="Wayne"  },
                     }, new { @class = "form-control" })
-                    <input type="submit" value="Search Counties" />
                 </p>
+                <p class="dropButton"><input type="submit" value="Search Counties" /></p>
             }
             else if (Int32.Parse(ViewBag.DistrictFilter) == 3)
             {
-                <p style="text-align: center;">
+                <p class="dropDown">
                     @Html.DropDownList("countySearch", new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Calhoun", Value="Calhoun"  },
@@ -71,12 +72,12 @@
                         new SelectListItem {Text = "Wirt", Value="Wirt"  },
                         new SelectListItem {Text = "Wood", Value="Wood"  },
                     }, new { @class = "form-control" })
-                    <input type="submit" value="Search Counties" />
                 </p>
+                <p class="dropButton"><input type="submit" value="Search Counties" /></p>
             }
             else if (Int32.Parse(ViewBag.DistrictFilter) == 4)
             {
-                <p style="text-align: center;">
+                <p class="dropDown">
                     @Html.DropDownList("countySearch", new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Doddridge", Value="Doddridge"  },
@@ -86,12 +87,12 @@
                         new SelectListItem {Text = "Preston", Value="Preston"  },
                         new SelectListItem {Text = "Taylor", Value="Taylor"  }
                     }, new { @class = "form-control" })
-                    <input type="submit" value="Search Counties" />
                 </p>
+                <p class="dropButton"><input type="submit" value="Search Counties" /></p>
             }
             else if (Int32.Parse(ViewBag.DistrictFilter) == 5)
             {
-                <p style="text-align: center;">
+                <p class="dropDown">
                     @Html.DropDownList("countySearch", new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Berkeley", Value="Berkeley"  },
@@ -102,12 +103,12 @@
                         new SelectListItem {Text = "Mineral", Value="Mineral"  },
                         new SelectListItem {Text = "Morgan", Value="Morgan"  }
                     }, new { @class = "form-control" })
-                    <input type="submit" value="Search Counties" />
                 </p>
+                <p class="dropButton"><input type="submit" value="Search Counties" /></p>
             }
             else if (Int32.Parse(ViewBag.DistrictFilter) == 6)
             {
-                <p style="text-align: center;">
+                <p class="dropDown">
                     @Html.DropDownList("countySearch", new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Brooke", Value="Brooke"  },
@@ -117,12 +118,12 @@
                         new SelectListItem {Text = "Tyler", Value="Tyler"  },
                         new SelectListItem {Text = "Wetzel", Value="Wetzel"  }
                     }, new { @class = "form-control" })
-                    <input type="submit" value="Search Counties" />
                 </p>
+                <p class="dropButton"><input type="submit" value="Search Counties" /></p>
             }
             else if (Int32.Parse(ViewBag.DistrictFilter) == 7)
             {
-                <p style="text-align: center;">
+                <p class="dropDown">
                     @Html.DropDownList("countySearch", new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Barbour", Value="Barbour"  },
@@ -132,12 +133,12 @@
                         new SelectListItem {Text = "Upshur", Value="Upshur"  },
                         new SelectListItem {Text = "Webster", Value="Webster"  }
                     }, new { @class = "form-control" })
-                    <input type="submit" value="Search Counties" />
                 </p>
+                <p class="dropButton"><input type="submit" value="Search Counties" /></p>
             }
             else if (Int32.Parse(ViewBag.DistrictFilter) == 8)
             {
-                <p style="text-align: center;">
+                <p class="dropDown">
                     @Html.DropDownList("countySearch", new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Pendleton", Value="Pendleton"  },
@@ -145,12 +146,12 @@
                         new SelectListItem {Text = "Randolph", Value="Randolph"  },
                         new SelectListItem {Text = "Tucker", Value="Tucker"  }
                     }, new { @class = "form-control" })
-                    <input type="submit" value="Search Counties" />
                 </p>
+                <p class="dropButton"><input type="submit" value="Search Counties" /></p>
             }
             else if (Int32.Parse(ViewBag.DistrictFilter) == 9)
             {
-                <p style="text-align: center;">
+                <p class="dropDown">
                     @Html.DropDownList("countySearch", new List<SelectListItem>
                     {
                         new SelectListItem {Text = "Fayette", Value="Fayette"  },
@@ -159,12 +160,12 @@
                         new SelectListItem {Text = "Nicholas", Value="Nicholas"  },
                         new SelectListItem {Text = "Summers", Value="Summers"  }
                     }, new { @class = "form-control" })
-                    <input type="submit" value="Search Counties" />
                 </p>
+                <p class="dropButton"><input type="submit" value="Search Counties" /></p>
             }
             else if (Int32.Parse(ViewBag.DistrictFilter) == 10)
             {
-                <p style="text-align: center;">
+                <p class="dropDown">
                     @Html.DropDownList("countySearch", new List<SelectListItem>
                     {
                         new SelectListItem {Text = "McDowell", Value="McDowell"  },
@@ -172,14 +173,14 @@
                         new SelectListItem {Text = "Raleigh ", Value="Raleigh "  },
                         new SelectListItem {Text = "Wyoming ", Value="Wyoming "  }
                     }, new { @class = "form-control" })
-                    <input type="submit" value="Search Counties" />
                 </p>
+                <p class="dropButton"><input type="submit" value="Search Counties" /></p>
             }
         }
         <br />
         if (!String.IsNullOrEmpty(ViewBag.CountyFilter))
         {
-            <p style="text-align: center;">
+            <p class="dropDown">
                 @Html.DropDownList("signSearch", new List<SelectListItem>
                 {
                     new SelectListItem {Text = "CO", Value="CO"  },
@@ -194,8 +195,8 @@
                     new SelectListItem {Text = "MNS", Value="MNS"  },
                     new SelectListItem {Text = "USFS", Value="USFS"  }
                 }, new { @class = "form-control" })
-                <input type="submit" value="Search Counties" />
             </p>
+            <p class="dropButton"><input type="submit" value="Sign Sys" /></p>
         }
         <br />
         if (!String.IsNullOrEmpty(ViewBag.signFilter))
@@ -205,6 +206,8 @@
                 <input type="submit" value="Route #" />
             </p>
         }
+        <br />
+        <p class="dropButton">@Html.ActionLink("Clear Search", "AdvancedSearch", new { id = "" })</p>
     }
 </div>
 

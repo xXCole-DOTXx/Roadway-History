@@ -54,10 +54,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/01/2021 10:45:05</publishTime>
     </File>
     <File Include="bin/Roadway_History.dll">
-      <publishTime>06/07/2021 15:43:07</publishTime>
+      <publishTime>06/08/2021 10:21:41</publishTime>
     </File>
     <File Include="bin/Roadway_History.pdb">
-      <publishTime>06/07/2021 15:43:07</publishTime>
+      <publishTime>06/08/2021 10:21:41</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>04/01/2021 10:45:04</publishTime>
@@ -323,6 +323,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>04/01/2021 10:45:02</publishTime>
     </File>
+    <File Include="Styles/Statewides/AdvancedSearchStyles.css">
+      <publishTime>06/08/2021 10:10:03</publishTime>
+    </File>
     <File Include="Views/Documents/Create.cshtml">
       <publishTime>06/02/2021 09:26:29</publishTime>
     </File>
@@ -354,7 +357,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/07/2021 08:36:42</publishTime>
     </File>
     <File Include="Views/Statewides/AdvancedSearch.cshtml">
-      <publishTime>06/07/2021 15:41:57</publishTime>
+      <publishTime>06/08/2021 10:21:32</publishTime>
     </File>
     <File Include="Views/Statewides/Create.cshtml">
       <publishTime>06/03/2021 15:16:15</publishTime>
