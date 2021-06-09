@@ -192,6 +192,7 @@
 
 <br />
 
+<p>Default order is newest to oldest.</p>
 <table class="table">
     <tr>
         <th>
@@ -202,9 +203,6 @@
         </th>
         <th>
             @Html.ActionLink("Sign System", "ReservedRoutes", new { sortOrder = ViewBag.SignSortParm, currentFilter = ViewBag.CurrentFilter })
-        </th>
-        <th>
-            @Html.ActionLink("Route No Originl Import", "ReservedRoutes", new { sortOrder = ViewBag.OGrouteSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             @Html.ActionLink("Route No", "ReservedRoutes", new { sortOrder = ViewBag.routeSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -231,9 +229,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SignSys)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RouteNoOrigImport)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RouteNo)

@@ -43,7 +43,6 @@ namespace Roadway_History.Controllers
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID" : "";
             ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
             ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";
-            ViewBag.OGrouteSortParm = sortOrder == "OGroute" ? "OGroute_desc" : "OGroute";
             ViewBag.SignSortParm = sortOrder == "sign" ? "sign_desc" : "sign";
             ViewBag.SuppSortParm = sortOrder == "supp" ? "supp_desc" : "supp";
             ViewBag.LocalNameSortParm = sortOrder == "local" ? "local_desc" : "local";
@@ -66,7 +65,6 @@ namespace Roadway_History.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 statewides = statewides.Where(s => s.COUNTY.Contains(searchString)
-                                             || s.RouteNoOrigImport.Contains(searchString)
                                              || s.RouteNo.ToString().Contains(searchString)
                                              || s.LocalName.Contains(searchString)
                                              || s.Current_Status.Contains(searchString));
@@ -88,12 +86,6 @@ namespace Roadway_History.Controllers
                     break;
                 case "route_desc":
                     statewides = statewides.OrderByDescending(s => s.RouteNo);
-                    break;
-                case "OGroute":
-                    statewides = statewides.OrderBy(s => s.RouteNoOrigImport);
-                    break;
-                case "OGroute_desc":
-                    statewides = statewides.OrderByDescending(s => s.RouteNoOrigImport);
                     break;
                 case "sign":
                     statewides = statewides.OrderBy(s => s.SignSys);
@@ -135,7 +127,6 @@ namespace Roadway_History.Controllers
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID" : "";
             ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
             ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";
-            ViewBag.OGrouteSortParm = sortOrder == "OGroute" ? "OGroute_desc" : "OGroute";
             ViewBag.SignSortParm = sortOrder == "sign" ? "sign_desc" : "sign";
             ViewBag.SuppSortParm = sortOrder == "supp" ? "supp_desc" : "supp";
             ViewBag.LocalNameSortParm = sortOrder == "local" ? "local_desc" : "local";
@@ -197,12 +188,6 @@ namespace Roadway_History.Controllers
                 case "route_desc":
                     statewides = statewides.OrderByDescending(s => s.RouteNo);
                     break;
-                case "OGroute":
-                    statewides = statewides.OrderBy(s => s.RouteNoOrigImport);
-                    break;
-                case "OGroute_desc":
-                    statewides = statewides.OrderByDescending(s => s.RouteNoOrigImport);
-                    break;
                 case "sign":
                     statewides = statewides.OrderBy(s => s.SignSys);
                     break;
@@ -243,7 +228,6 @@ namespace Roadway_History.Controllers
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID" : "";
             ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
             ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";
-            ViewBag.OGrouteSortParm = sortOrder == "OGroute" ? "OGroute_desc" : "OGroute";
             ViewBag.SignSortParm = sortOrder == "sign" ? "sign_desc" : "sign";
             ViewBag.SuppSortParm = sortOrder == "supp" ? "supp_desc" : "supp";
             ViewBag.LocalNameSortParm = sortOrder == "local" ? "local_desc" : "local";
@@ -303,12 +287,6 @@ namespace Roadway_History.Controllers
                     break;
                 case "route_desc":
                     statewides = statewides.OrderByDescending(s => s.RouteNo);
-                    break;
-                case "OGroute":
-                    statewides = statewides.OrderBy(s => s.RouteNoOrigImport);
-                    break;
-                case "OGroute_desc":
-                    statewides = statewides.OrderByDescending(s => s.RouteNoOrigImport);
                     break;
                 case "sign":
                     statewides = statewides.OrderBy(s => s.SignSys);
