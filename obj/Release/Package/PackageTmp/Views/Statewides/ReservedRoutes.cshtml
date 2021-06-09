@@ -35,12 +35,13 @@
             <p class="dropDown dropFade">
                 @Html.DropDownList("countySearch", new List<SelectListItem>
                 {
+                    new SelectListItem {Text = null, Value=null  },
                     new SelectListItem {Text = "Boone", Value="Boone"  },
                     new SelectListItem {Text = "Clay", Value="Clay"  },
                     new SelectListItem {Text = "Kanawha", Value="Kanawha"  },
                     new SelectListItem {Text = "Mason", Value="Mason"  },
                     new SelectListItem {Text = "Putnam", Value="Putnam"  },
-                }, new { @class = "form-control" })
+                }, new { @class = "form-control", sortOrder = ViewBag.CurrentSort })
             </p>
             <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
         }
@@ -49,12 +50,13 @@
             <p class="dropDown dropFade">
                 @Html.DropDownList("countySearch", new List<SelectListItem>
                 {
+                    new SelectListItem {Text = null, Value=null  },
                     new SelectListItem {Text = "Cabell", Value="Cabell"  },
                     new SelectListItem {Text = "Lincoln", Value="Lincoln"  },
                     new SelectListItem {Text = "Logan", Value="Logan"  },
                     new SelectListItem {Text = "Mingo", Value="Mingo"  },
                     new SelectListItem {Text = "Wayne", Value="Wayne"  },
-                }, new { @class = "form-control" })
+                }, new { @class = "form-control", sortOrder = ViewBag.CurrentSort })
             </p>
             <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
         }
@@ -63,6 +65,7 @@
             <p class="dropDown dropFade">
                 @Html.DropDownList("countySearch", new List<SelectListItem>
                 {
+                    new SelectListItem {Text = null, Value=null  },
                     new SelectListItem {Text = "Calhoun", Value="Calhoun"  },
                     new SelectListItem {Text = "Jackson", Value="Jackson"  },
                     new SelectListItem {Text = "Pleasants", Value="Pleasants"  },
@@ -79,6 +82,7 @@
             <p class="dropDown dropFade">
                 @Html.DropDownList("countySearch", new List<SelectListItem>
                 {
+                    new SelectListItem {Text = null, Value=null  },
                     new SelectListItem {Text = "Doddridge", Value="Doddridge"  },
                     new SelectListItem {Text = "Harrison", Value="Harrison"  },
                     new SelectListItem {Text = "Marion", Value="Marion"  },
@@ -94,6 +98,7 @@
             <p class="dropDown dropFade">
                 @Html.DropDownList("countySearch", new List<SelectListItem>
                 {
+                    new SelectListItem {Text = null, Value=null  },
                     new SelectListItem {Text = "Berkeley", Value="Berkeley"  },
                     new SelectListItem {Text = "Grant", Value="Grant"  },
                     new SelectListItem {Text = "Hampshire", Value="Hampshire"  },
@@ -110,6 +115,7 @@
             <p class="dropDown dropFade">
                 @Html.DropDownList("countySearch", new List<SelectListItem>
                 {
+                    new SelectListItem {Text = null, Value=null  },
                     new SelectListItem {Text = "Brooke", Value="Brooke"  },
                     new SelectListItem {Text = "Hancock", Value="Hancock"  },
                     new SelectListItem {Text = "Marshall", Value="Marshall"  },
@@ -125,6 +131,7 @@
             <p class="dropDown dropFade">
                 @Html.DropDownList("countySearch", new List<SelectListItem>
                 {
+                    new SelectListItem {Text = null, Value=null  },
                     new SelectListItem {Text = "Barbour", Value="Barbour"  },
                     new SelectListItem {Text = "Braxton", Value="Braxton"  },
                     new SelectListItem {Text = "Gilmer", Value="Gilmer"  },
@@ -140,6 +147,7 @@
             <p class="dropDown dropFade">
                 @Html.DropDownList("countySearch", new List<SelectListItem>
                 {
+                    new SelectListItem {Text = null, Value=null  },
                     new SelectListItem {Text = "Pendleton", Value="Pendleton"  },
                     new SelectListItem {Text = "Pocahontas", Value="Pocahontas"  },
                     new SelectListItem {Text = "Randolph", Value="Randolph"  },
@@ -153,6 +161,7 @@
             <p class="dropDown dropFade">
                 @Html.DropDownList("countySearch", new List<SelectListItem>
                 {
+                    new SelectListItem {Text = null, Value=null  },
                     new SelectListItem {Text = "Fayette", Value="Fayette"  },
                     new SelectListItem {Text = "Greenbrier", Value="Greenbrier"  },
                     new SelectListItem {Text = "Monroe", Value="Monroe"  },
@@ -167,6 +176,7 @@
             <p class="dropDown dropFade">
                 @Html.DropDownList("countySearch", new List<SelectListItem>
                 {
+                    new SelectListItem {Text = null, Value=null  },
                     new SelectListItem {Text = "McDowell", Value="McDowell"  },
                     new SelectListItem {Text = "Mercer", Value="Mercer"  },
                     new SelectListItem {Text = "Raleigh ", Value="Raleigh "  },
@@ -176,6 +186,8 @@
             <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
         }
     }
+    <br />
+    <p class="dropButton">@Html.ActionLink("Clear Search", "ReservedRoutes", new { id = "" })</p>
 }
 
 <br />
