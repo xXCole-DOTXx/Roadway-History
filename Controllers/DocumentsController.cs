@@ -18,6 +18,7 @@ namespace Roadway_History.Controllers
         // GET: Documents
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page, int? statewideID)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID_desc" : "";
             ViewBag.stateIDSortParm = sortOrder == "stateID" ? "state_desc" : "stateID";
             ViewBag.DateSortParm = sortOrder == "date" ? "date_desc" : "date";

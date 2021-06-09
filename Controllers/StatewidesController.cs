@@ -131,6 +131,7 @@ namespace Roadway_History.Controllers
 
         public ActionResult ReservedRoutes(string sortOrder, string currentFilter, string searchString, int? page, string countyFilter, string countySearch)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID" : "";
             ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
             ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";
@@ -170,13 +171,13 @@ namespace Roadway_History.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                statewides = statewides.Where(s => s.District.ToString().Contains(searchString));
+                statewides = statewides.Where(s => s.District.ToString().Equals(searchString));
 
-            }
+                if (!String.IsNullOrEmpty(countySearch))
+                {
+                    statewides = statewides.Where(s => s.COUNTY.Contains(countySearch));
+                }
 
-            if (!String.IsNullOrEmpty(countySearch))
-            {
-                statewides = statewides.Where(s => s.COUNTY.ToString().Contains(countySearch));
             }
 
             switch (sortOrder)
@@ -238,6 +239,7 @@ namespace Roadway_History.Controllers
 
         public ActionResult AdvancedSearch(string sortOrder, string DistrictFilter, string DistrictString, int? page, string CountyFilter, string countySearch, string routeFilter, string routeSearch, string signFilter, string signSearch)
         {
+            ViewBag.CurrentSort = sortOrder;
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID" : "";
             ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
             ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";

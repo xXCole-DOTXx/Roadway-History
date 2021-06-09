@@ -217,28 +217,28 @@
     <tr>
         <th></th>
         <th>
-            @Html.ActionLink("County", "Index", new { sortOrder = ViewBag.countySortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("County", "AdvancedSearch", new { sortOrder = ViewBag.countySortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             District
         </th>
         <th>
-            @Html.ActionLink("Sign System", "Index", new { sortOrder = ViewBag.SignSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Sign System", "AdvancedSearch", new { sortOrder = ViewBag.SignSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Route No Originl Import", "Index", new { sortOrder = ViewBag.OGrouteSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Route No Originl Import", "AdvancedSearch", new { sortOrder = ViewBag.OGrouteSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Route No", "Index", new { sortOrder = ViewBag.routeSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Route No", "AdvancedSearch", new { sortOrder = ViewBag.routeSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Supp Code", "Index", new { sortOrder = ViewBag.SuppSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Supp Code", "AdvancedSearch", new { sortOrder = ViewBag.SuppSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Local Name", "Index", new { sortOrder = ViewBag.LocalNameSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Local Name", "AdvancedSearch", new { sortOrder = ViewBag.LocalNameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Current Status", "Index", new { sortOrder = ViewBag.StatusSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Current Status", "AdvancedSearch", new { sortOrder = ViewBag.StatusSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
     </tr>
 
@@ -283,5 +283,5 @@
 <br />
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
-@Html.PagedListPager(Model, page => Url.Action("Index",
+@Html.PagedListPager(Model, page => Url.Action("AdvancedSearch",
     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

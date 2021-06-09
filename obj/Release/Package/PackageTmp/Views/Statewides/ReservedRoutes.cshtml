@@ -1,6 +1,7 @@
 ﻿@model PagedList.IPagedList<Roadway_History.Models.Statewide>
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Styles/Statewides/AdvancedSearchStyles.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Reserved Routes";
@@ -9,15 +10,172 @@
 
 @using (Html.BeginForm("ReservedRoutes", "Statewides", FormMethod.Get))
 {
-    <p style="text-align: center">
-        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search Districts" />
+    <p class="dropDown">
+        @Html.DropDownList("SearchString", new List<SelectListItem>
+        {
+            new SelectListItem {Text = "1", Value="1"  },
+            new SelectListItem {Text = "2", Value="2"  },
+            new SelectListItem {Text = "3", Value="3"  },
+            new SelectListItem {Text = "4", Value="4"  },
+            new SelectListItem {Text = "5", Value="5"  },
+            new SelectListItem {Text = "6", Value="6"  },
+            new SelectListItem {Text = "7", Value="7"  },
+            new SelectListItem {Text = "8", Value="8"  },
+            new SelectListItem {Text = "9", Value="9"  },
+            new SelectListItem {Text = "10", Value="10"  }
+        }, new { @class = "form-control" })
     </p>
+    <p class="dropButton"><input type="submit" value="Search Districts" /></p>
     <br />
-    <p style="text-align: center">
-        @Html.TextBox("countySearch", ViewBag.CountyFilter as string)
-        <input type="submit" value="Search Counties" />
-    </p>
+
+    if (!String.IsNullOrEmpty(ViewBag.currentFilter))
+    {
+        if (Int32.Parse(ViewBag.currentFilter) == 1)
+        {
+            <p class="dropDown dropFade">
+                @Html.DropDownList("countySearch", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Boone", Value="Boone"  },
+                    new SelectListItem {Text = "Clay", Value="Clay"  },
+                    new SelectListItem {Text = "Kanawha", Value="Kanawha"  },
+                    new SelectListItem {Text = "Mason", Value="Mason"  },
+                    new SelectListItem {Text = "Putnam", Value="Putnam"  },
+                }, new { @class = "form-control" })
+            </p>
+            <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
+        }
+        else if (Int32.Parse(ViewBag.currentFilter) == 2)
+        {
+            <p class="dropDown dropFade">
+                @Html.DropDownList("countySearch", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Cabell", Value="Cabell"  },
+                    new SelectListItem {Text = "Lincoln", Value="Lincoln"  },
+                    new SelectListItem {Text = "Logan", Value="Logan"  },
+                    new SelectListItem {Text = "Mingo", Value="Mingo"  },
+                    new SelectListItem {Text = "Wayne", Value="Wayne"  },
+                }, new { @class = "form-control" })
+            </p>
+            <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
+        }
+        else if (Int32.Parse(ViewBag.currentFilter) == 3)
+        {
+            <p class="dropDown dropFade">
+                @Html.DropDownList("countySearch", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Calhoun", Value="Calhoun"  },
+                    new SelectListItem {Text = "Jackson", Value="Jackson"  },
+                    new SelectListItem {Text = "Pleasants", Value="Pleasants"  },
+                    new SelectListItem {Text = "Ritchie", Value="Ritchie"  },
+                    new SelectListItem {Text = "Roane", Value="Roane"  },
+                    new SelectListItem {Text = "Wirt", Value="Wirt"  },
+                    new SelectListItem {Text = "Wood", Value="Wood"  },
+                }, new { @class = "form-control" })
+            </p>
+            <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
+        }
+        else if (Int32.Parse(ViewBag.currentFilter) == 4)
+        {
+            <p class="dropDown dropFade">
+                @Html.DropDownList("countySearch", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Doddridge", Value="Doddridge"  },
+                    new SelectListItem {Text = "Harrison", Value="Harrison"  },
+                    new SelectListItem {Text = "Marion", Value="Marion"  },
+                    new SelectListItem {Text = "Monongalia", Value="Monongalia"  },
+                    new SelectListItem {Text = "Preston", Value="Preston"  },
+                    new SelectListItem {Text = "Taylor", Value="Taylor"  }
+                }, new { @class = "form-control" })
+            </p>
+            <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
+        }
+        else if (Int32.Parse(ViewBag.currentFilter) == 5)
+        {
+            <p class="dropDown dropFade">
+                @Html.DropDownList("countySearch", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Berkeley", Value="Berkeley"  },
+                    new SelectListItem {Text = "Grant", Value="Grant"  },
+                    new SelectListItem {Text = "Hampshire", Value="Hampshire"  },
+                    new SelectListItem {Text = "Hardy", Value="Hardy"  },
+                    new SelectListItem {Text = "Jefferson", Value="Jefferson"  },
+                    new SelectListItem {Text = "Mineral", Value="Mineral"  },
+                    new SelectListItem {Text = "Morgan", Value="Morgan"  }
+                }, new { @class = "form-control" })
+            </p>
+            <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
+        }
+        else if (Int32.Parse(ViewBag.currentFilter) == 6)
+        {
+            <p class="dropDown dropFade">
+                @Html.DropDownList("countySearch", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Brooke", Value="Brooke"  },
+                    new SelectListItem {Text = "Hancock", Value="Hancock"  },
+                    new SelectListItem {Text = "Marshall", Value="Marshall"  },
+                    new SelectListItem {Text = "Ohio", Value="Ohio"  },
+                    new SelectListItem {Text = "Tyler", Value="Tyler"  },
+                    new SelectListItem {Text = "Wetzel", Value="Wetzel"  }
+                }, new { @class = "form-control" })
+            </p>
+            <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
+        }
+        else if (Int32.Parse(ViewBag.currentFilter) == 7)
+        {
+            <p class="dropDown dropFade">
+                @Html.DropDownList("countySearch", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Barbour", Value="Barbour"  },
+                    new SelectListItem {Text = "Braxton", Value="Braxton"  },
+                    new SelectListItem {Text = "Gilmer", Value="Gilmer"  },
+                    new SelectListItem {Text = "Lewis", Value="Lewis"  },
+                    new SelectListItem {Text = "Upshur", Value="Upshur"  },
+                    new SelectListItem {Text = "Webster", Value="Webster"  }
+                }, new { @class = "form-control" })
+            </p>
+            <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
+        }
+        else if (Int32.Parse(ViewBag.currentFilter) == 8)
+        {
+            <p class="dropDown dropFade">
+                @Html.DropDownList("countySearch", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Pendleton", Value="Pendleton"  },
+                    new SelectListItem {Text = "Pocahontas", Value="Pocahontas"  },
+                    new SelectListItem {Text = "Randolph", Value="Randolph"  },
+                    new SelectListItem {Text = "Tucker", Value="Tucker"  }
+                }, new { @class = "form-control" })
+            </p>
+            <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
+        }
+        else if (Int32.Parse(ViewBag.currentFilter) == 9)
+        {
+            <p class="dropDown dropFade">
+                @Html.DropDownList("countySearch", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Fayette", Value="Fayette"  },
+                    new SelectListItem {Text = "Greenbrier", Value="Greenbrier"  },
+                    new SelectListItem {Text = "Monroe", Value="Monroe"  },
+                    new SelectListItem {Text = "Nicholas", Value="Nicholas"  },
+                    new SelectListItem {Text = "Summers", Value="Summers"  }
+                }, new { @class = "form-control" })
+            </p>
+            <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
+        }
+        else if (Int32.Parse(ViewBag.currentFilter) == 10)
+        {
+            <p class="dropDown dropFade">
+                @Html.DropDownList("countySearch", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "McDowell", Value="McDowell"  },
+                    new SelectListItem {Text = "Mercer", Value="Mercer"  },
+                    new SelectListItem {Text = "Raleigh ", Value="Raleigh "  },
+                    new SelectListItem {Text = "Wyoming ", Value="Wyoming "  }
+                }, new { @class = "form-control" })
+            </p>
+            <p class="dropButton dropFade"><input type="submit" value="Search Counties" /></p>
+        }
+    }
 }
 
 <br />
@@ -25,28 +183,28 @@
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("County", "Index", new { sortOrder = ViewBag.countySortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("County", "ReservedRoutes", new { sortOrder = ViewBag.countySortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
             District
         </th>
         <th>
-            @Html.ActionLink("Sign System", "Index", new { sortOrder = ViewBag.SignSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Sign System", "ReservedRoutes", new { sortOrder = ViewBag.SignSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Route No Originl Import", "Index", new { sortOrder = ViewBag.OGrouteSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Route No Originl Import", "ReservedRoutes", new { sortOrder = ViewBag.OGrouteSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Route No", "Index", new { sortOrder = ViewBag.routeSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Route No", "ReservedRoutes", new { sortOrder = ViewBag.routeSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Supp Code", "Index", new { sortOrder = ViewBag.SuppSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Supp Code", "ReservedRoutes", new { sortOrder = ViewBag.SuppSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Local Name", "Index", new { sortOrder = ViewBag.LocalNameSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Local Name", "ReservedRoutes", new { sortOrder = ViewBag.LocalNameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Current Status", "Index", new { sortOrder = ViewBag.StatusSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Current Status", "ReservedRoutes", new { sortOrder = ViewBag.StatusSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
     </tr>
 
@@ -85,5 +243,5 @@
 <br />
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
-@Html.PagedListPager(Model, page => Url.Action("Index",
+@Html.PagedListPager(Model, page => Url.Action("ReservedRoutes",
     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
