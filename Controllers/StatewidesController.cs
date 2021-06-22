@@ -112,7 +112,7 @@ namespace Roadway_History.Controllers
                     statewides = statewides.OrderByDescending(s => s.Current_Status);
                     break;
                 default:
-                    statewides = statewides.OrderByDescending(s => s.ID);
+                    statewides = statewides.OrderBy(s => s.ID);
                     break;
             }
 
@@ -213,7 +213,7 @@ namespace Roadway_History.Controllers
                     statewides = statewides.OrderByDescending(s => s.Current_Status);
                     break;
                 default:
-                    statewides = statewides.OrderByDescending(s => s.ID);
+                    statewides = statewides.OrderBy(s => s.ID);
                     break;
             }
 
@@ -313,7 +313,7 @@ namespace Roadway_History.Controllers
                     statewides = statewides.OrderByDescending(s => s.Current_Status);
                     break;
                 default:
-                    statewides = statewides.OrderByDescending(s => s.ID);
+                    statewides = statewides.OrderBy(s => s.ID);
                     break;
             }
 
@@ -357,7 +357,8 @@ namespace Roadway_History.Controllers
                 statewide.Date_Added = DateTime.Today;
                 db.Statewides.Add(statewide);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                int lastAddedID = db.Statewides.Max(item => item.ID);
+                return RedirectToAction("Create", "Documents", new { statewideID = lastAddedID});
             }
 
             return View(statewide);

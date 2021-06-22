@@ -38,6 +38,9 @@
         <th></th>
         <th></th>
         <th>
+            District
+        </th>
+        <th>
             @Html.ActionLink("County", "Index", new { sortOrder = ViewBag.countySortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
@@ -52,53 +55,50 @@
         <th>
             @Html.ActionLink("Local Name", "Index", new { sortOrder = ViewBag.LocalNameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
-        <th>
-            @Html.ActionLink("Current Status", "Index", new { sortOrder = ViewBag.StatusSortParm, currentFilter = ViewBag.CurrentFilter })
-        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                <!--Html.ActionLink("Documents", "Index", "Documents", new { statewideID = item.ID }, new { class = "btn btn-primary btn-large" }) -->
-                <a href="@Url.Action("Index", "Documents", new { statewideID = item.ID })" title="Documents" class="links">
-                    <img alt="Documents" src="@Url.Content("~/Assets/documents.png")">
-                </a>
-            </td>
-            <td>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-                }
-                @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
-                {
-                    @Html.ActionLink("Details", "Details", new { id = item.ID })
-                }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.COUNTY)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SignSys)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RouteNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuppDes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocalName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Current_Status)
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-large" })
-            </td>
-        </tr>
+<tr>
+    <td>
+        <!--Html.ActionLink("Documents", "Index", "Documents", new { statewideID = item.ID }, new { class = "btn btn-primary btn-large" }) -->
+        <a href="@Url.Action("Index", "Documents", new { statewideID = item.ID })" title="Documents" class="links">
+            <img alt="Documents" src="@Url.Content("~/Assets/documents.png")">
+        </a>
+    </td>
+    <td>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+        }
+        @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
+        {
+            @Html.ActionLink("Details", "Details", new { id = item.ID })
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.District)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.COUNTY)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SignSys)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RouteNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SuppDes)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LocalName)
+    </td>
+    <td>
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-large" })
+    </td>
+</tr>
     }
 
 </table>

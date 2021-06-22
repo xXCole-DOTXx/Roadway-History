@@ -22,6 +22,7 @@ namespace Roadway_History.Controllers
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "ID_desc" : "";
             ViewBag.stateIDSortParm = sortOrder == "stateID" ? "state_desc" : "stateID";
             ViewBag.DateSortParm = sortOrder == "date" ? "date_desc" : "date";
+            ViewBag.statewideID = statewideID;
 
             if (searchString != null)
             {
@@ -43,9 +44,20 @@ namespace Roadway_History.Controllers
                                                || s.Comment.Contains(searchString));
             }
 
+            //IF INDEX IS LOADED FROM STATEWIDE ID
             if (statewideID != null)
             {
                 documents = documents.Where(s => s.Statewide_ID == statewideID);
+                //Get County
+                var county = db.Statewides.Where(c => c.ID == statewideID)
+                                          .Select(x => x.COUNTY);
+                foreach (var name in county)
+                    ViewBag.County = name;
+                //Get RouteNo
+                var route = db.Statewides.Where(c => c.ID == statewideID)
+                                         .Select(x => x.RouteNo);
+                foreach (var rt in route)
+                    ViewBag.Route = rt;
             }
 
                 switch (sortOrder)
@@ -91,8 +103,9 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Create
-        public ActionResult Create()
+        public ActionResult Create(int? statewideID)
         {
+            ViewBag.statewideID = statewideID;
             return View();
         }
 
@@ -105,6 +118,7 @@ namespace Roadway_History.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                 document.Add_User = userName;
                 document.Date_Added = DateTime.Today;

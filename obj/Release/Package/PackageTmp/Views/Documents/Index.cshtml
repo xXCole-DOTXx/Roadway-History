@@ -10,7 +10,10 @@
 <p>
     @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
     {
-        @Html.ActionLink("Create New", "Create")
+        if (ViewBag.statewideID != null)
+        {
+            @Html.ActionLink("Create New", "Create", new { statewideID = ViewBag.statewideID })
+        }
     }
 </p>
 

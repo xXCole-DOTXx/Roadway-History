@@ -10,7 +10,10 @@
 <p>
     @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
     {
-        @Html.ActionLink("Create New", "Create")
+        if (ViewBag.statewideID != null)
+        {
+            @Html.ActionLink("Create New", "Create", new { statewideID = ViewBag.statewideID })
+        }
     }
 </p>
 
@@ -25,6 +28,12 @@
 <p>Default order is newest to oldest.</p>
 <table class="table">
     <tr>
+        <th>
+            County
+        </th>
+        <th>
+            RouteNo
+        </th>
         <th>
             Doc Type
         </th>
@@ -52,6 +61,12 @@
     @foreach (var item in Model)
     {
 <tr>
+    <td>
+        @ViewBag.County
+    </td>
+    <td>
+        @ViewBag.Route
+    </td>
     <td>
         @Html.DisplayFor(modelItem => item.Doc_Type)
     </td>
