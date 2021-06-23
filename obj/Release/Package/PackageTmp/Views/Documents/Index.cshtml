@@ -29,6 +29,12 @@
 <table class="table">
     <tr>
         <th>
+            County
+        </th>
+        <th>
+            RouteNo
+        </th>
+        <th>
             Doc Type
         </th>
         <th>
@@ -55,6 +61,12 @@
     @foreach (var item in Model)
     {
 <tr>
+    <td>
+        @ViewBag.County
+    </td>
+    <td>
+        @ViewBag.Route
+    </td>
     <td>
         @Html.DisplayFor(modelItem => item.Doc_Type)
     </td>

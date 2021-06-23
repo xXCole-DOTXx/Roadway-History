@@ -236,7 +236,7 @@
             @Html.ActionLink("Local Name", "AdvancedSearch", new { sortOrder = ViewBag.LocalNameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.ActionLink("Current Status", "AdvancedSearch", new { sortOrder = ViewBag.StatusSortParm, currentFilter = ViewBag.CurrentFilter })
+            Comments
         </th>
     </tr>
 
@@ -268,7 +268,7 @@
         @Html.DisplayFor(modelItem => item.LocalName)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Current_Status)
+        @Html.DisplayFor(modelItem => item.Comments)
     </td>
 </tr>
     }

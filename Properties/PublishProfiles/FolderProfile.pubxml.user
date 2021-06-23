@@ -5,9 +5,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>\\dotb6dwtest01v\roadwayhistory</_PublishTargetUrl>
-    <History>True|2021-06-17T16:47:59.9458158Z;True|2021-06-17T12:43:00.9650284-04:00;True|2021-06-17T12:22:55.5310576-04:00;True|2021-06-17T12:16:57.5682029-04:00;True|2021-06-17T12:02:40.6300571-04:00;True|2021-06-17T11:58:07.3082763-04:00;True|2021-06-17T11:56:02.1040698-04:00;True|2021-06-09T14:30:34.5653802-04:00;True|2021-06-09T10:30:10.0640378-04:00;True|2021-06-09T09:27:48.8733981-04:00;True|2021-06-08T13:57:12.7701169-04:00;True|2021-06-07T15:43:08.4839374-04:00;True|2021-06-07T15:11:48.4829024-04:00;True|2021-06-07T13:28:16.4975113-04:00;True|2021-06-07T10:14:56.3893089-04:00;True|2021-06-03T15:19:29.7682575-04:00;True|2021-06-03T10:15:05.7037617-04:00;True|2021-06-02T09:30:12.7429532-04:00;True|2021-06-02T09:19:32.5759813-04:00;True|2021-06-02T08:32:15.4322401-04:00;True|2021-06-02T08:10:25.3508447-04:00;True|2021-06-02T08:01:42.1695809-04:00;True|2021-06-01T09:43:12.0187355-04:00;True|2021-05-27T15:51:30.2712996-04:00;True|2021-05-27T15:36:22.2860330-04:00;True|2021-05-27T15:35:24.9272233-04:00;True|2021-05-27T15:35:19.1882116-04:00;True|2021-05-27T15:34:28.8644051-04:00;True|2021-05-27T15:32:51.9563799-04:00;True|2021-05-27T11:42:57.9669241-04:00;True|2021-05-24T12:22:31.6227213-04:00;True|2021-05-24T11:11:05.7194082-04:00;True|2021-05-20T15:56:40.0843266-04:00;</History>
+    <History>True|2021-06-23T19:05:30.4398852Z;True|2021-06-23T11:21:09.2376507-04:00;True|2021-06-23T11:20:14.2721786-04:00;True|2021-06-22T16:04:08.4820247-04:00;True|2021-06-17T12:47:59.9458158-04:00;True|2021-06-17T12:43:00.9650284-04:00;True|2021-06-17T12:22:55.5310576-04:00;True|2021-06-17T12:16:57.5682029-04:00;True|2021-06-17T12:02:40.6300571-04:00;True|2021-06-17T11:58:07.3082763-04:00;True|2021-06-17T11:56:02.1040698-04:00;True|2021-06-09T14:30:34.5653802-04:00;True|2021-06-09T10:30:10.0640378-04:00;True|2021-06-09T09:27:48.8733981-04:00;True|2021-06-08T13:57:12.7701169-04:00;True|2021-06-07T15:43:08.4839374-04:00;True|2021-06-07T15:11:48.4829024-04:00;True|2021-06-07T13:28:16.4975113-04:00;True|2021-06-07T10:14:56.3893089-04:00;True|2021-06-03T15:19:29.7682575-04:00;True|2021-06-03T10:15:05.7037617-04:00;True|2021-06-02T09:30:12.7429532-04:00;True|2021-06-02T09:19:32.5759813-04:00;True|2021-06-02T08:32:15.4322401-04:00;True|2021-06-02T08:10:25.3508447-04:00;True|2021-06-02T08:01:42.1695809-04:00;True|2021-06-01T09:43:12.0187355-04:00;True|2021-05-27T15:51:30.2712996-04:00;True|2021-05-27T15:36:22.2860330-04:00;True|2021-05-27T15:35:24.9272233-04:00;True|2021-05-27T15:35:19.1882116-04:00;True|2021-05-27T15:34:28.8644051-04:00;True|2021-05-27T15:32:51.9563799-04:00;True|2021-05-27T11:42:57.9669241-04:00;True|2021-05-24T12:22:31.6227213-04:00;True|2021-05-24T11:11:05.7194082-04:00;True|2021-05-20T15:56:40.0843266-04:00;</History>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="App_Browsers/qt.browser">
+      <publishTime>06/23/2021 11:14:17</publishTime>
+    </File>
     <File Include="Assets/documents.png">
       <publishTime>06/03/2021 14:58:58</publishTime>
     </File>
@@ -54,10 +57,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/01/2021 10:45:05</publishTime>
     </File>
     <File Include="bin/Roadway_History.dll">
-      <publishTime>06/17/2021 12:47:56</publishTime>
+      <publishTime>06/23/2021 15:05:29</publishTime>
     </File>
     <File Include="bin/Roadway_History.pdb">
-      <publishTime>06/17/2021 12:47:56</publishTime>
+      <publishTime>06/23/2021 15:05:29</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>04/01/2021 10:45:04</publishTime>
@@ -206,6 +209,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>04/01/2021 10:45:04</publishTime>
     </File>
+    <File Include="bin/Rotativa.dll">
+      <publishTime>09/29/2017 14:13:30</publishTime>
+    </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>04/01/2021 10:45:04</publishTime>
     </File>
@@ -284,6 +290,18 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Models/Model1.edmx.diagram">
       <publishTime>04/01/2021 10:45:02</publishTime>
     </File>
+    <File Include="Rotativa/help-wkhtmltoimage.txt">
+      <publishTime>06/23/2021 11:14:17</publishTime>
+    </File>
+    <File Include="Rotativa/help-wkhtmltopdf.txt">
+      <publishTime>06/23/2021 11:14:17</publishTime>
+    </File>
+    <File Include="Rotativa/wkhtmltoimage.exe">
+      <publishTime>06/23/2021 11:14:17</publishTime>
+    </File>
+    <File Include="Rotativa/wkhtmltopdf.exe">
+      <publishTime>06/23/2021 11:14:17</publishTime>
+    </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>04/01/2021 10:45:02</publishTime>
     </File>
@@ -339,7 +357,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/24/2021 09:57:55</publishTime>
     </File>
     <File Include="Views/Documents/Index.cshtml">
-      <publishTime>06/17/2021 12:02:31</publishTime>
+      <publishTime>06/22/2021 10:24:17</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>06/09/2021 14:30:26</publishTime>
@@ -357,7 +375,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/07/2021 08:36:42</publishTime>
     </File>
     <File Include="Views/Statewides/AdvancedSearch.cshtml">
-      <publishTime>06/09/2021 14:26:19</publishTime>
+      <publishTime>06/23/2021 11:33:06</publishTime>
     </File>
     <File Include="Views/Statewides/Create.cshtml">
       <publishTime>06/03/2021 15:16:15</publishTime>
@@ -366,13 +384,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/02/2021 08:31:25</publishTime>
     </File>
     <File Include="Views/Statewides/Details.cshtml">
-      <publishTime>06/17/2021 12:47:49</publishTime>
+      <publishTime>06/23/2021 11:28:49</publishTime>
     </File>
     <File Include="Views/Statewides/Edit.cshtml">
       <publishTime>05/24/2021 10:21:23</publishTime>
     </File>
     <File Include="Views/Statewides/Index.cshtml">
-      <publishTime>06/17/2021 12:02:25</publishTime>
+      <publishTime>06/23/2021 11:34:51</publishTime>
+    </File>
+    <File Include="Views/Statewides/pdfDetails.cshtml">
+      <publishTime>06/23/2021 13:17:14</publishTime>
     </File>
     <File Include="Views/Statewides/ReservedRoutes.cshtml">
       <publishTime>06/09/2021 14:25:57</publishTime>
@@ -384,7 +405,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/01/2021 10:45:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/01/2021 10:51:50</publishTime>
+      <publishTime>06/23/2021 11:20:07</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -6,6 +6,14 @@
 
 <h2>Details</h2>
 
+  <p>
+        @Html.ActionLink("Convert View To PDF", "pdfDetails", "Statewides", 
+      new {                                                     // routeValues
+        id = ViewBag.ID
+          },
+    null)
+    </p>
+
 <div>
     <h4>Statewide</h4>
     <hr />

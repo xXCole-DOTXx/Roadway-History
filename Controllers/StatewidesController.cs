@@ -11,7 +11,6 @@ using PagedList;
 using System.Security.Principal;
 using System.Security;
 
-
 namespace Roadway_History.Controllers
 {
     public class StatewidesController : Controller
@@ -44,6 +43,7 @@ namespace Roadway_History.Controllers
             ViewBag.countySortParm = sortOrder == "county" ? "county_desc" : "county";
             ViewBag.routeSortParm = sortOrder == "route" ? "route_desc" : "route";
             ViewBag.SignSortParm = sortOrder == "sign" ? "sign_desc" : "sign";
+            ViewBag.SuppSortParm = sortOrder == "supp" ? "supp_desc" : "supp";
             ViewBag.SuppSortParm = sortOrder == "supp" ? "supp_desc" : "supp";
             ViewBag.LocalNameSortParm = sortOrder == "local" ? "local_desc" : "local";
             ViewBag.StatusSortParm = sortOrder == "status" ? "status_desc" : "status";
@@ -325,6 +325,10 @@ namespace Roadway_History.Controllers
         // GET: Statewides/Details/5
         public ActionResult Details(int? id)
         {
+            ViewBag.ID = id;
+            var today = DateTime.Today;
+            var todayAsString = today.ToString("MM/dd/yyyy");
+            ViewBag.Today = todayAsString;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -336,6 +340,7 @@ namespace Roadway_History.Controllers
             }
             return View(statewide);
         }
+
         [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
         // GET: Statewides/Create
         public ActionResult Create()

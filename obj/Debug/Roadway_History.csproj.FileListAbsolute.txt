@@ -259,3 +259,4 @@ C:\Users\e096752\Documents\Cole's Git Repos\Roadway-History\obj\Debug\Roadway_Hi
 C:\Users\e096752\Documents\Cole's Git Repos\Roadway-History\obj\Debug\Roadway_History.csproj.CopyComplete
 C:\Users\e096752\Documents\Cole's Git Repos\Roadway-History\obj\Debug\Roadway_History.dll
 C:\Users\e096752\Documents\Cole's Git Repos\Roadway-History\obj\Debug\Roadway_History.pdb
+C:\Users\e096752\Documents\Cole's Git Repos\Roadway-History\bin\Rotativa.dll

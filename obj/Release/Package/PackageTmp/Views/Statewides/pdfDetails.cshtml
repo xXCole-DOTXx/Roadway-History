@@ -1,0 +1,226 @@
+﻿@model Roadway_History.Models.Statewide
+
+@{
+    ViewBag.Title = "pdfDetails";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Statewide</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.COUNTY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COUNTY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignSys)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignSys)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RouteNoOrigImport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RouteNoOrigImport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RouteNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RouteNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuppDes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuppDes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Method)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Method)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginalL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginalL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginalD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginalD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Projects)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Projects)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Documents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Documents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.District)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.District)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duplicate_OK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duplicate_OK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RightofWay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RightofWay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservedRoute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReservedRoute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReservedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReservedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CP_WorkCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CP_WorkCompleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Work_Comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Work_Comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CP_ProjectNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CP_ProjectNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservedCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReservedCat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Current_Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Current_Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Add_User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Add_User)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Added)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Added)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
