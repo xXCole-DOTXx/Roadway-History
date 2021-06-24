@@ -4,19 +4,32 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detail Record - RP Roadway History File</h2>
 
-  <p>
-        @Html.ActionLink("Convert View To PDF", "pdfDetails", "Statewides", 
-      new {                                                     // routeValues
-        id = ViewBag.ID
-          },
-    null)
-    </p>
-
+<input type="button" onclick="javascript:window.print()" value="Print" runat="server" />
+<p style="float:right">Current Date: @ViewBag.Today</p>
 <div>
-    <h4>Statewide</h4>
     <hr />
+
+    <div class="row">
+        <h4 class="col-md-2">County:</h4>
+        <p class="col-md-2">@Html.DisplayFor(model => model.COUNTY)</p>
+
+        <h4 class="col-md-2">District:</h4>
+        <p class="col-md-2">@Html.DisplayFor(model => model.District)</p>
+    </div>
+
+    <div class="row">
+        <h4 class="col-md-2">Route No:</h4>
+        <p class="col-md-2">@Html.DisplayFor(model => model.RouteNo)</p>
+
+        <h4 class="col-md-2">Sign System:</h4>
+        <p class="col-md-2">@Html.DisplayFor(model => model.SignSys)</p>
+    </div>
+
+
+
+
     <dl class="dl-horizontal">
         <dt>
             Database ID
@@ -222,3 +235,4 @@
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+

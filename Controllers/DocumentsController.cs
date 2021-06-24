@@ -122,6 +122,7 @@ namespace Roadway_History.Controllers
                 var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                 document.Add_User = userName;
                 document.Date_Added = DateTime.Today;
+                var temp = document.Order_Date;
                 db.Documents.Add(document);
                 db.SaveChanges();
                 return RedirectToAction("Index");

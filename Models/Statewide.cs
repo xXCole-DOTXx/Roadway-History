@@ -11,7 +11,8 @@ namespace Roadway_History.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Statewide
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,6 +28,7 @@ namespace Roadway_History.Models
         public Nullable<int> RouteNo { get; set; }
         public Nullable<int> SuppDes { get; set; }
         public string LocalName { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> DateNumber { get; set; }
         public string Method { get; set; }
         public string OriginalL { get; set; }
@@ -39,6 +41,7 @@ namespace Roadway_History.Models
         public string RightofWay { get; set; }
         public bool ReservedRoute { get; set; }
         public string ReservedBy { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> ReservedDate { get; set; }
         public bool CP_WorkCompleted { get; set; }
         public string Work_Comments { get; set; }
@@ -46,6 +49,7 @@ namespace Roadway_History.Models
         public Nullable<int> ReservedCat { get; set; }
         public string Current_Status { get; set; }
         public string Add_User { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
         public Nullable<System.DateTime> Date_Added { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
