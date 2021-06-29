@@ -8,19 +8,31 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-header" style="margin-left: 10px">
-                <a href="@Url.Action("Index", "Statewides")" title="List View" class="links">
-                    <img alt="List View" src="@Url.Content("~/Assets/WVDOT.png")" style="width:60px; height:60px; margin-right: 10px">
-                </a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Documents", "Index", "Documents")</li>
-                <li>@Html.ActionLink("Roadway History Index", "Index", "Statewides")</li>
-                <li>@Html.ActionLink("Reserved Routes", "ReservedRoutes", "Statewides")</li>
-                <li>@Html.ActionLink("Resources", "About", "Home")</li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="@Url.Action("Index", "Statewides")" title="List View" class="links">
+            <img alt="List View" src="@Url.Content("~/Assets/WVDOT.png")" style="width:60px; height:60px; margin-right: 10px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link">@Html.ActionLink("Documents", "Index", "Documents")</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">@Html.ActionLink("Roadway History Index", "Index", "Statewides")</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">@Html.ActionLink("Reserved Routes", "ReservedRoutes", "Statewides")</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">@Html.ActionLink("Resources", "About", "Home")</a>
+                </li>
             </ul>
-    </div>
+        </div>
+    </nav>
 
 
     <div class="container body-content">

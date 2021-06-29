@@ -11,219 +11,103 @@
 
 <div class="container-fluid text-center">
     <div class="borderline">
-        <h3><strong>DETAIL RECORD - RP ROADWAY HISTORY FILE</strong></h3>
-        <input style="float:left" type="button" onclick="javascript:window.print()" value="Print" runat="server" />
-        <p style="float:right">Current Date: @ViewBag.Today</p>
-        <div class="row"></div>
+        <h5 class="title"><strong>DETAIL RECORD - RP ROADWAY HISTORY FILE</strong></h5>
+        <div class="row mb-3">
+            <input class="col-1" type="button" onclick="javascript:window.print()" value="Print" runat="server" />
+            <p class="text-right mb-0 col-11">
+                <u>Current Date:</u>
+                <script>document.write(new Date().toLocaleDateString());</script>
+            </p>
+        </div>
     </div>
-</div>
-
-
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Database ID
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.COUNTY)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.COUNTY)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SignSys)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SignSys)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RouteNoOrigImport)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RouteNoOrigImport)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RouteNo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RouteNo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SuppDes)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SuppDes)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LocalName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LocalName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Method)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Method)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OriginalL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OriginalL)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OriginalD)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OriginalD)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Projects)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Projects)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Documents)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Documents)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Comments)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comments)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.District)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.District)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Duplicate_OK)
-        </dt>
-
-        <dd>
+    <div class="row mb-3">
+        <div class="col-8 text-left">
+            <h6><u class="mr-3">COUNTY:</u> <span class="box-shadow px-5">@Html.DisplayFor(model => model.COUNTY)</span></h6>
+        </div>
+        <div class="col-3 text-right">
+            <h6><u class="mr-2">District:</u>@Html.DisplayFor(model => model.District)</h6>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-4 text-left">
+            <h6><u class="mr-3">Route No:</u><span class="box-shadow px-5">@Html.DisplayFor(model => model.RouteNo)</span></h6>
+        </div>
+        <div class="col-4">
+            <h6><u class="mr-3">Sign System:</u><span class="box-shadow px-3">@Html.DisplayFor(model => model.SignSys)</span></h6>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-4 text-left">
+            <h6><u class="mr-3">LocalName:</u></h6>
+        </div>
+        <div class="col-8"></div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-4 text-left">
+            <h6 class="box-shadow px-5">@Html.DisplayFor(model => model.LocalName)</h6>
+        </div>
+        <div class="col-8"></div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-1"></div>
+        <div class="col-1 text-right">
+            <h6><u>Supp Des:</u></h6>
+        </div>
+        <div class="col-3 text-left">
+            <h6>@Html.DisplayFor(model => model.SuppDes)</h6>
+        </div>
+        <div class="col-1 text-right">
+            <h6><u>Method:</u></h6>
+        </div>
+        <div class="col-3 text-left">
+            <h6>@Html.DisplayFor(model => model.Method)</h6>
+        </div>
+        <div class="col-3 text-left">
             @Html.DisplayFor(model => model.Duplicate_OK)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RightofWay)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RightofWay)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReservedRoute)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReservedRoute)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReservedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReservedBy)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReservedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReservedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CP_WorkCompleted)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CP_WorkCompleted)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Work_Comments)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Work_Comments)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CP_ProjectNo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CP_ProjectNo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ReservedCat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ReservedCat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Current_Status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Current_Status)
-        </dd>
-
-    </dl>
+            <label class="form-check-label" for="duplicateCheck"><h6>Duplicate OK</h6></label>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-1"></div>
+        <div class="col-1 text-right">
+            <h6><u>Date:</u></h6>
+        </div>
+        <div class="col-3 text-left">
+            <h6>What date??</h6>
+        </div>
+        <div class="col-1 text-right">
+            <h6><u>Original Location:</u></h6>
+        </div>
+        <div class="col-6 text-left">
+            <h6>@Html.DisplayFor(model => model.OriginalL)</h6>
+        </div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-5"></div>
+        <div class="col-1 text-right">
+            <h6><u>Original D:</u></h6>
+        </div>
+        <div class="col-6 text-left">
+            <h6>@Html.DisplayFor(model => model.OriginalD)</h6>
+        </div>
+    </div>
+    <div class="borderline text-left">
+        <h5 class="mb-0">DOCUMENTS</h5>
+    </div>
+    <h6 class="text-left">TABLE GOES HERE</h6>
+    <div class="borderline text-left">
+        <h5 class="mb-0">PROJECTS</h5>
+    </div>
+    <h6 class="text-left">@Html.DisplayFor(model => model.Projects)</h6>
+    <div class="borderline text-left">
+        <h5 class="mb-0">COMMENTS</h5>
+    </div>
+    <h6 class="text-left">@Html.DisplayFor(model => model.Comments)</h6>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+
+<p style="margin-top: 20px">
     @Html.ActionLink("Back to List", "Index")
 </p>
 
