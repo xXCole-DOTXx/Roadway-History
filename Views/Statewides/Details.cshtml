@@ -1,35 +1,26 @@
 ﻿@model Roadway_History.Models.Statewide
 
+<!--            CUSTOM CSS          -->
+<link href="~/Styles/Statewides/DetailsStyle.css" type="text/css" rel="stylesheet">
+<!--            GOOGLE ICONS          -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Detail Record - RP Roadway History File</h2>
+<div class="container-fluid text-center">
+    <div class="borderline">
+        <h3><strong>DETAIL RECORD - RP ROADWAY HISTORY FILE</strong></h3>
+        <input style="float:left" type="button" onclick="javascript:window.print()" value="Print" runat="server" />
+        <p style="float:right">Current Date: @ViewBag.Today</p>
+        <div class="row"></div>
+    </div>
+</div>
 
-<input type="button" onclick="javascript:window.print()" value="Print" runat="server" />
-<p style="float:right">Current Date: @ViewBag.Today</p>
+
 <div>
     <hr />
-
-    <div class="row">
-        <h4 class="col-md-2">County:</h4>
-        <p class="col-md-2">@Html.DisplayFor(model => model.COUNTY)</p>
-
-        <h4 class="col-md-2">District:</h4>
-        <p class="col-md-2">@Html.DisplayFor(model => model.District)</p>
-    </div>
-
-    <div class="row">
-        <h4 class="col-md-2">Route No:</h4>
-        <p class="col-md-2">@Html.DisplayFor(model => model.RouteNo)</p>
-
-        <h4 class="col-md-2">Sign System:</h4>
-        <p class="col-md-2">@Html.DisplayFor(model => model.SignSys)</p>
-    </div>
-
-
-
-
     <dl class="dl-horizontal">
         <dt>
             Database ID

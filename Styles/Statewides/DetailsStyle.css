@@ -1,0 +1,10 @@
+﻿.borderline {
+    border-bottom: 4px solid #000000;
+    padding-bottom: 2rem;
+}
+
+.box-shadow {
+    margin-top: 40px;
+    box-shadow: 0.15rem 0.15rem 0.25rem #000000;
+}
+

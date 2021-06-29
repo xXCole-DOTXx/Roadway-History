@@ -28,12 +28,19 @@
 <p>Default order is newest to oldest.</p>
 <table class="table">
     <tr>
-        <th>
-            County
-        </th>
-        <th>
-            RouteNo
-        </th>
+        @if (ViewBag.County != null)
+        {
+            <th>
+                County
+            </th>
+        }
+
+        @if (ViewBag.Route != null)
+        {
+            <th>
+                Route
+            </th>
+        }
         <th>
             Doc Type
         </th>
@@ -61,12 +68,18 @@
     @foreach (var item in Model)
     {
 <tr>
-    <td>
-        @ViewBag.County
-    </td>
-    <td>
-        @ViewBag.Route
-    </td>
+    @if (ViewBag.County != null)
+    {
+        <td>
+            @ViewBag.County
+        </td>
+    }
+    @if (ViewBag.Route != null)
+    {
+        <td>
+            @ViewBag.Route
+        </td>
+    }
     <td>
         @Html.DisplayFor(modelItem => item.Doc_Type)
     </td>
