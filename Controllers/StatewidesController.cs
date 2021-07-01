@@ -66,8 +66,7 @@ namespace Roadway_History.Controllers
             {
                 statewides = statewides.Where(s => s.COUNTY.Contains(searchString)
                                              || s.RouteNo.ToString().Contains(searchString)
-                                             || s.LocalName.Contains(searchString)
-                                             || s.Current_Status.Contains(searchString));
+                                             || s.LocalName.Contains(searchString));
             }
 
             switch (sortOrder)
@@ -105,14 +104,8 @@ namespace Roadway_History.Controllers
                 case "local_desc":
                     statewides = statewides.OrderByDescending(s => s.LocalName);
                     break;
-                case "status":
-                    statewides = statewides.OrderBy(s => s.Current_Status);
-                    break;
-                case "status_desc":
-                    statewides = statewides.OrderByDescending(s => s.Current_Status);
-                    break;
                 default:
-                    statewides = statewides.OrderBy(s => s.ID);
+                    statewides = statewides.OrderByDescending(s => s.ID);
                     break;
             }
 
@@ -206,12 +199,6 @@ namespace Roadway_History.Controllers
                 case "local_desc":
                     statewides = statewides.OrderByDescending(s => s.LocalName);
                     break;
-                case "status":
-                    statewides = statewides.OrderBy(s => s.Current_Status);
-                    break;
-                case "status_desc":
-                    statewides = statewides.OrderByDescending(s => s.Current_Status);
-                    break;
                 default:
                     statewides = statewides.OrderBy(s => s.ID);
                     break;
@@ -233,15 +220,10 @@ namespace Roadway_History.Controllers
             ViewBag.LocalNameSortParm = sortOrder == "local" ? "local_desc" : "local";
             ViewBag.StatusSortParm = sortOrder == "status" ? "status_desc" : "status";
 
-            if (DistrictString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                DistrictString = DistrictFilter;
-            }
-
+            System.Diagnostics.Debug.WriteLine("The district was: " + DistrictString);
+            System.Diagnostics.Debug.WriteLine("The county was: " + countySearch);
+            System.Diagnostics.Debug.WriteLine("The sign was: " + signSearch);
+            System.Diagnostics.Debug.WriteLine("The route was: " + routeSearch);
             ViewBag.DistrictFilter = DistrictString;
             ViewBag.CountyFilter = countySearch;
             ViewBag.signFilter = signSearch;
@@ -256,7 +238,7 @@ namespace Roadway_History.Controllers
 
                 if (!String.IsNullOrEmpty(countySearch))
                 {
-                    statewides = statewides.Where(s => s.COUNTY.Contains(countySearch));
+                    statewides = statewides.Where(s => s.COUNTY.Contains(countySearch.ToUpper()));
 
                     if (!String.IsNullOrEmpty(signSearch))
                     {
@@ -305,12 +287,6 @@ namespace Roadway_History.Controllers
                     break;
                 case "local_desc":
                     statewides = statewides.OrderByDescending(s => s.LocalName);
-                    break;
-                case "status":
-                    statewides = statewides.OrderBy(s => s.Current_Status);
-                    break;
-                case "status_desc":
-                    statewides = statewides.OrderByDescending(s => s.Current_Status);
                     break;
                 default:
                     statewides = statewides.OrderBy(s => s.ID);

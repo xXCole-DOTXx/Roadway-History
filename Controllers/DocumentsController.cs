@@ -78,7 +78,7 @@ namespace Roadway_History.Controllers
                     documents = documents.OrderByDescending(s => s.Order_Date);
                     break;
                 default:
-                    documents = documents.OrderBy(s => s.ID);
+                    documents = documents.OrderByDescending(s => s.ID);
                     break;
             }
 
@@ -125,7 +125,7 @@ namespace Roadway_History.Controllers
                 var temp = document.Order_Date;
                 db.Documents.Add(document);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Statewides");
             }
 
             return View(document);
