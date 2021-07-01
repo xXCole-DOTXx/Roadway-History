@@ -220,6 +220,7 @@ namespace Roadway_History.Controllers
             ViewBag.LocalNameSortParm = sortOrder == "local" ? "local_desc" : "local";
             ViewBag.StatusSortParm = sortOrder == "status" ? "status_desc" : "status";
 
+
             System.Diagnostics.Debug.WriteLine("The district was: " + DistrictString);
             System.Diagnostics.Debug.WriteLine("The county was: " + countySearch);
             System.Diagnostics.Debug.WriteLine("The sign was: " + signSearch);

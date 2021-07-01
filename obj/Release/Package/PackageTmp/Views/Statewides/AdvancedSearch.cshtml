@@ -218,22 +218,22 @@
     <tr>
         <th></th>
         <th>
-            @Html.ActionLink("County", "AdvancedSearch", new { sortOrder = ViewBag.countySortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("County", "AdvancedSearch", new { sortOrder = ViewBag.countySortParm, currentFilter = ViewBag.CurrentFilter, DistrictString = ViewBag.DistrictFilter, countySearch = ViewBag.CountyFilter, signSearch = ViewBag.signFilter, routeSearch = ViewBag.routeFilter })
         </th>
         <th>
             District
         </th>
         <th>
-            @Html.ActionLink("Sign System", "AdvancedSearch", new { sortOrder = ViewBag.SignSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Sign System", "AdvancedSearch", new { sortOrder = ViewBag.SignSortParm, currentFilter = ViewBag.CurrentFilter, DistrictString = ViewBag.DistrictFilter, countySearch = ViewBag.CountyFilter, signSearch = ViewBag.signFilter, routeSearch = ViewBag.routeFilter })
         </th>
         <th>
-            @Html.ActionLink("Route No", "AdvancedSearch", new { sortOrder = ViewBag.routeSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Route No", "AdvancedSearch", new { sortOrder = ViewBag.routeSortParm, currentFilter = ViewBag.CurrentFilter, DistrictString = ViewBag.DistrictFilter, countySearch = ViewBag.CountyFilter, signSearch = ViewBag.signFilter, routeSearch = ViewBag.routeFilter })
         </th>
         <th>
-            @Html.ActionLink("Supp Code", "AdvancedSearch", new { sortOrder = ViewBag.SuppSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Supp Code", "AdvancedSearch", new { sortOrder = ViewBag.SuppSortParm, currentFilter = ViewBag.CurrentFilter, DistrictString = ViewBag.DistrictFilter, countySearch = ViewBag.CountyFilter, signSearch = ViewBag.signFilter, routeSearch = ViewBag.routeFilter })
         </th>
         <th>
-            @Html.ActionLink("Local Name", "AdvancedSearch", new { sortOrder = ViewBag.LocalNameSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Local Name", "AdvancedSearch", new { sortOrder = ViewBag.LocalNameSortParm, currentFilter = ViewBag.CurrentFilter, DistrictString = ViewBag.DistrictFilter, countySearch = ViewBag.CountyFilter, signSearch = ViewBag.signFilter, routeSearch = ViewBag.routeFilter })
         </th>
         <th>
             Comments
@@ -279,4 +279,4 @@
 Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
 @Html.PagedListPager(Model, page => Url.Action("AdvancedSearch",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, DistrictString = ViewBag.DistrictFilter, countySearch = ViewBag.CountyFilter, signSearch = ViewBag.signFilter, routeSearch = ViewBag.routeFilter }))
