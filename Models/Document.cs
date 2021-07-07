@@ -17,7 +17,7 @@ namespace Roadway_History.Models
         public int ID { get; set; }
         public Nullable<int> Statewide_ID { get; set; }
         public string Doc_Type { get; set; }
-        public Nullable<System.DateTime> Order_Date { get; set; }
+        public Nullable<DateTime> Order_Date { get; set; }
         public string Doc_Location { get; set; }
         public string File_Contents { get; set; }
         public string Comment { get; set; }

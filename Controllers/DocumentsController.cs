@@ -40,8 +40,15 @@ namespace Roadway_History.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                documents = documents.Where(s => s.Order_Date.ToString().Contains(searchString)
-                                               || s.Comment.Contains(searchString));
+                try
+                {
+                    var test = DateTime.Parse(searchString);
+                    documents = documents.Where(s => s.Order_Date == test);
+                }
+                catch (FormatException e)
+                {
+                    documents = documents.Where(s => s.Comment.Contains(searchString));
+                }
             }
 
             //IF INDEX IS LOADED FROM STATEWIDE ID
