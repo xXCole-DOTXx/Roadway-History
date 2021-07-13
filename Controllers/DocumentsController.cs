@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Roadway_History.Models;
 using PagedList;
+using System.Data.Entity.Validation;
 
 namespace Roadway_History.Controllers
 {
@@ -121,17 +122,29 @@ namespace Roadway_History.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source,Latitude,Longitude,Add_User,Date_Added")] Document document)
+        public ActionResult Create([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source,Add_User,Date_Added")] Document document)
         {
             if (ModelState.IsValid)
             {
 
                 var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
                 document.Add_User = userName;
-                document.Date_Added = DateTime.Today;
-                var temp = document.Order_Date;
-                db.Documents.Add(document);
-                db.SaveChanges();
+                document.Date_Added = DateTime.Now;
+                try
+                {
+                    db.Documents.Add(document);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in entityValidationErrors.ValidationErrors)
+                        {
+                            Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                        }
+                    }
+                }
                 return RedirectToAction("Index", "Statewides");
             }
 
@@ -158,7 +171,7 @@ namespace Roadway_History.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source,Latitude,Longitude")] Document document)
+        public ActionResult Edit([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source")] Document document)
         {
             if (ModelState.IsValid)
             {

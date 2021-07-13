@@ -95,12 +95,6 @@
     <td>
         @Html.DisplayFor(modelItem => item.Comment)
     </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Latitude)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Longitude)
-    </td>
     @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
     {
         <td>

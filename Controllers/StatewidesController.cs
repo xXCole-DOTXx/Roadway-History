@@ -10,6 +10,8 @@ using Roadway_History.Models;
 using PagedList;
 using System.Security.Principal;
 using System.Security;
+using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 
 namespace Roadway_History.Controllers
 {
@@ -322,7 +324,8 @@ namespace Roadway_History.Controllers
         // GET: Statewides/Create
         public ActionResult Create()
         {
-            return View();
+            var model = new Statewide();
+            return View(model);
         }
 
         // POST: Statewides/Create
@@ -335,11 +338,31 @@ namespace Roadway_History.Controllers
             if (ModelState.IsValid)
             {
                 var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-                statewide.Add_User = userName;
-                statewide.Date_Added = DateTime.Today;
-                db.Statewides.Add(statewide);
-                db.SaveChanges();
-                int lastAddedID = db.Statewides.Max(item => item.ID);
+                statewide.Add_User = "Cole";
+                statewide.Date_Added = DateTime.Now;
+                try
+                {
+                    db.Statewides.Add(statewide);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                        if (ex.InnerException != null)
+                        {
+                            Response.Write(ex.InnerException.Message);
+                        }
+                    }
+                }
+                    return RedirectToAction("Error", new { error = 1});
+                }
+
+
+            int lastAddedID = db.Statewides.Max(item => item.ID);
                 return RedirectToAction("Create", "Documents", new { statewideID = lastAddedID});
             }
 
@@ -399,8 +422,15 @@ namespace Roadway_History.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Statewide statewide = db.Statewides.Find(id);
-            db.Statewides.Remove(statewide);
-            db.SaveChanges();
+            try
+            {
+                db.Statewides.Remove(statewide);
+                db.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                return RedirectToAction("Error", new { error = 2} );
+            }
             return RedirectToAction("Index");
         }
 
@@ -411,6 +441,19 @@ namespace Roadway_History.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Error(int error)
+        {
+            if(error == 1)
+            {
+                ViewBag.Error = "";
+            }
+            else
+            {
+                ViewBag.Error = "You are trying to delete a Statewide record that has Documents attached to it. Please delete the Documents first.";
+            }
+            return View("Error");
         }
     }
 }
