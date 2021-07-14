@@ -320,7 +320,7 @@ namespace Roadway_History.Controllers
             return View(statewide);
         }
 
-        //[Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
         // GET: Statewides/Create
         public ActionResult Create()
         {
@@ -337,8 +337,7 @@ namespace Roadway_History.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-                statewide.Add_User = "Cole";
+                statewide.Add_User = User.Identity.Name;
                 statewide.Date_Added = DateTime.Now;
                 try
                 {
@@ -358,7 +357,7 @@ namespace Roadway_History.Controllers
                         }
                     }
                 }
-                    return RedirectToAction("Error", new { error = 1});
+                    return RedirectToAction("Error", new { error = 1, name = User.Identity.Name });
                 }
 
 
@@ -402,6 +401,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Statewides/Delete/5
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -443,7 +443,7 @@ namespace Roadway_History.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult Error(int error)
+        public ActionResult Error(int error, string userName)
         {
             if(error == 1)
             {
@@ -452,6 +452,10 @@ namespace Roadway_History.Controllers
             else
             {
                 ViewBag.Error = "You are trying to delete a Statewide record that has Documents attached to it. Please delete the Documents first.";
+            }
+            if (!String.IsNullOrEmpty(userName))
+            {
+                ViewBag.Name = "Cole";
             }
             return View("Error");
         }

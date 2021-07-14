@@ -111,6 +111,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Create
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
         public ActionResult Create(int? statewideID)
         {
             ViewBag.statewideID = statewideID;
@@ -126,9 +127,7 @@ namespace Roadway_History.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                var userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-                document.Add_User = userName;
+                document.Add_User = User.Identity.Name;
                 document.Date_Added = DateTime.Now;
                 try
                 {
@@ -152,6 +151,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Edit/5
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -183,6 +183,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Delete/5
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

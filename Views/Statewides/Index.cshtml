@@ -103,7 +103,10 @@
         @Html.DisplayFor(modelItem => item.Comments)
     </td>
     <td>
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-large" })
+        @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
+        {
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-large" })
+        }
     </td>
 </tr>
     }
