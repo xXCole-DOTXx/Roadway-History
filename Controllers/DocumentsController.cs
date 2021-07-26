@@ -111,7 +111,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Create
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
         public ActionResult Create(int? statewideID)
         {
             ViewBag.statewideID = statewideID;
@@ -123,7 +123,7 @@ namespace Roadway_History.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source,Add_User,Date_Added")] Document document)
+        public ActionResult Create([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Add_User,Date_Added")] Document document)
         {
             if (ModelState.IsValid)
             {
@@ -151,7 +151,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Edit/5
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -171,7 +171,7 @@ namespace Roadway_History.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment,Source")] Document document)
+        public ActionResult Edit([Bind(Include = "ID,Statewide_ID,Doc_Type,Order_Date,Doc_Location,File_Contents,Comment")] Document document)
         {
             if (ModelState.IsValid)
             {
@@ -183,7 +183,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Delete/5
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -2,6 +2,7 @@
 
 <!--            CUSTOM CSS          -->
 <link href="~/Styles/Documents/DetailsStyle.css" type="text/css" rel="stylesheet">
+
 <!--            GOOGLE ICONS          -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -9,106 +10,108 @@
     ViewBag.Title = "Details";
 }
 
-<div class="container-fluid text-center topLabel">
-    <div class="borderline">
-        <h4 class="title"><strong>DETAIL RECORD - RP ROADWAY HISTORY FILE</strong></h4>
+<div class="bigContainer">
+    <div class="container-fluid text-center topLabel">
+        <div class="borderline">
+            <h4 class="title"><strong>DETAIL RECORD - RP ROADWAY HISTORY FILE</strong></h4>
+            <div class="row">
+                <div class="col-md-1 printButton">
+                    <input class="text-left" type="button" onclick="javascript:window.print()" value="Print" runat="server" />
+                </div>
+                <div class="col-md-11">
+                    <p class="text-right">
+                        <u>Current Date:</u>
+                        <script>document.write(new Date().toLocaleDateString());</script>
+                    </p>
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-md-1">
-                <input class="text-left" type="button" onclick="javascript:window.print()" value="Print" runat="server" />
+            <div class="col-md-9 text-left">
+                <h5><strong>COUNTY:</strong> <span class="box-shadow px-3">@Html.DisplayFor(model => model.COUNTY)</span></h5>
             </div>
-            <div class="col-md-11">
-                <p class="text-right">
-                    <u>Current Date:</u>
-                    <script>document.write(new Date().toLocaleDateString());</script>
-                </p>
+            <div class="col-md-3 text-right district">
+                <h5><strong>District:</strong>@Html.DisplayFor(model => model.District)</h5>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-4 text-left">
+                <h5><strong>Route No:</strong><span class="box-shadow px-4">@Html.DisplayFor(model => model.RouteNo)</span></h5>
+            </div>
+            <div class="col-md-4">
+                <h5><strong>Sign System:</strong><span class="box-shadow px-4 sign">@Html.DisplayFor(model => model.SignSys)</span></h5>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <h5><strong>LocalName:</strong></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-left">
+                <h5 class="box-shadow px-3 localName">@Html.DisplayFor(model => model.LocalName)</h5>
+            </div>
+            <div class="col-md-8"></div>
+        </div>
+        <div class="row suppMethodDuplicate">
+            <div class="col-md-2 text-right">
+                <h5><strong>Supp Des:</strong></h5>
+            </div>
+            <div class="col-md-2 text-left">
+                <h5>@Html.DisplayFor(model => model.SuppDes)</h5>
+            </div>
+            <div class="col-md-2 text-right">
+                <h5><strong>Method:</strong></h5>
+            </div>
+            <div class="col-md-2 text-left">
+                <h5>@Html.DisplayFor(model => model.Method)</h5>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2 text-left">
+                @Html.DisplayFor(model => model.Duplicate_OK)
+                <label class="form-check-label" for="duplicateCheck"><strong>Duplicate OK</strong></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 text-right">
+                <h5><strong>Date:</strong></h5>
+            </div>
+            <div class="col-md-2 text-left">
+                <h5>@Html.DisplayFor(model => model.ReservedDate)</h5>
+            </div>
+            <div class="col-md-2 text-right">
+                <h5><strong>Original Location:</strong></h5>
+            </div>
+            <div class="col-md-2 text-left">
+                <h5>@Html.DisplayFor(model => model.OriginalL)</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-2 text-right">
+                <h5><strong>Original D:</strong></h5>
+            </div>
+            <div class="col-md-6 text-left">
+                <h6>@Html.DisplayFor(model => model.OriginalD)</h6>
+            </div>
+        </div>
+        <div class="borderline text-left">
+            <h5 class="mb-0"><strong>DOCUMENTS</strong></h5>
+        </div>
+        <h6 class="text-left">TABLE GOES HERE</h6>
+        <div class="borderline text-left">
+            <h5 class="mb-0"><strong>PROJECTS</strong></h5>
+        </div>
+        <h6 class="text-left">@Html.DisplayFor(model => model.Projects)</h6>
+        <div class="borderline text-left">
+            <h5 class="mb-0"><strong>COMMENTS</strong></h5>
+        </div>
+        <h6 class="text-left">@Html.DisplayFor(model => model.Comments)</h6>
     </div>
-    <div class="row">
-        <div class="col-md-9 text-left">
-            <h5><strong>COUNTY:</strong> <span class="box-shadow px-3">@Html.DisplayFor(model => model.COUNTY)</span></h5>
-        </div>
-        <div class="col-md-3 text-right">
-            <h5><strong>District:</strong>@Html.DisplayFor(model => model.District)</h5>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 text-left">
-            <h5><strong>Route No:</strong><span class="box-shadow px-4">@Html.DisplayFor(model => model.RouteNo)</span></h5>
-        </div>
-        <div class="col-md-4">
-            <h5><strong>Sign System:</strong><span class="box-shadow px-4">@Html.DisplayFor(model => model.SignSys)</span></h5>
-        </div>
-        <div class="col-md-4"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-left">
-            <h5><strong>LocalName:</strong></h5>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 text-left">
-            <h5 class="box-shadow px-3">@Html.DisplayFor(model => model.LocalName)</h5>
-        </div>
-        <div class="col-md-8"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-2 text-right">
-            <h5><strong>Supp Des:</strong></h5>
-        </div>
-        <div class="col-md-2 text-left">
-            <h5>@Html.DisplayFor(model => model.SuppDes)</h5>
-        </div>
-        <div class="col-md-2 text-right">
-            <h5><strong>Method:</strong></h5>
-        </div>
-        <div class="col-md-2 text-left">
-            <h5>@Html.DisplayFor(model => model.Method)</h5>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-2 text-left">
-            @Html.DisplayFor(model => model.Duplicate_OK)
-            <label class="form-check-label" for="duplicateCheck"><strong>Duplicate OK</strong></label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-2 text-right">
-            <h5><strong>Date:</strong></h5>
-        </div>
-        <div class="col-md-2 text-left">
-            <h5>What date??</h5>
-        </div>
-        <div class="col-md-2 text-right">
-            <h5><strong>Original Location:</strong></h5>
-        </div>
-        <div class="col-md-2 text-left">
-            <h5>@Html.DisplayFor(model => model.OriginalL)</h5>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-2 text-right">
-            <h5><strong>Original D:</strong></h5>
-        </div>
-        <div class="col-md-6 text-left">
-            <h6>@Html.DisplayFor(model => model.OriginalD)</h6>
-        </div>
-    </div>
-    <div class="borderline text-left">
-        <h5 class="mb-0"><strong>DOCUMENTS</strong></h5>
-    </div>
-    <h6 class="text-left">TABLE GOES HERE</h6>
-    <div class="borderline text-left">
-        <h5 class="mb-0"><strong>PROJECTS</strong></h5>
-    </div>
-    <h6 class="text-left">@Html.DisplayFor(model => model.Projects)</h6>
-    <div class="borderline text-left">
-        <h5 class="mb-0"><strong>COMMENTS</strong></h5>
-    </div>
-    <h6 class="text-left">@Html.DisplayFor(model => model.Comments)</h6>
+
+    <p style="margin-top: 20px">
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
 </div>
-
-<p style="margin-top: 20px">
-    @Html.ActionLink("Back to List", "Index")
-</p>
-

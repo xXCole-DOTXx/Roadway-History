@@ -12,3 +12,30 @@
     margin-top: 40px;
     box-shadow: 0.15rem 0.15rem 0.25rem #000000;
 }
+
+@media print {
+    .bigContainer {
+        margin-top: -100px !important;
+    }
+
+    .printButton {
+        margin-right: 600px !important;
+        margin-bottom: -30px !important;
+    }
+
+    .district {
+        margin-top: -25px !important;
+    }
+
+    .sign {
+        margin-bottom: 100px !important;
+    }
+
+    .localName {
+        margin-top: -5px !important;
+    }
+
+    .suppMethodDuplicate {
+        margin-right: 500px !important;
+    }
+}

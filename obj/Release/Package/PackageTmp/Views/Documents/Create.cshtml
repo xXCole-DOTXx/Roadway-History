@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create a new Document for Statewide record @ViewBag.statewideID</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Document</h4>
+
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -27,7 +27,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Doc_Type, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Doc_Type, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Doc_Type, new { htmlAttributes = new { @class = "form-control", placeholder = "CO" } })
             @Html.ValidationMessageFor(model => model.Doc_Type, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -35,7 +35,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Order_Date, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Order_Date, new { htmlAttributes = new { @class = "form-control", placeholder = "07/20/2021" } })
             @Html.ValidationMessageFor(model => model.Order_Date, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -43,7 +43,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Doc_Location, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Doc_Location, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Doc_Location, new { htmlAttributes = new { @class = "form-control", placeholder = "CORF" } })
             @Html.ValidationMessageFor(model => model.Doc_Location, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -51,7 +51,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.File_Contents, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.File_Contents, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.File_Contents, new { htmlAttributes = new { @class = "form-control", placeholder = "correspondence info" } })
             @Html.ValidationMessageFor(model => model.File_Contents, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -59,16 +59,8 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control", placeholder= "INQUIRY - Sara Cremeans 7/9/21" } })
             @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Source, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Source, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Source, "", new { @class = "text-danger" })
         </div>
     </div>
 

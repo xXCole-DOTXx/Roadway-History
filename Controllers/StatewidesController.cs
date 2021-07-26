@@ -170,6 +170,7 @@ namespace Roadway_History.Controllers
             {
                 case "ID":
                     statewides = statewides.OrderBy(s => s.ID);
+                    statewides = statewides.OrderBy(s => s.ID);
                     break;
                 case "county":
                     statewides = statewides.OrderBy(s => s.COUNTY);
@@ -313,6 +314,11 @@ namespace Roadway_History.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Statewide statewide = db.Statewides.Find(id);
+
+            var document = from s in db.Documents
+                           where s.Statewide_ID == id
+                             select s;
+
             if (statewide == null)
             {
                 return HttpNotFound();
@@ -320,7 +326,7 @@ namespace Roadway_History.Controllers
             return View(statewide);
         }
 
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
         // GET: Statewides/Create
         public ActionResult Create()
         {
@@ -369,7 +375,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Statewides/Edit/5
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -401,7 +407,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Statewides/Delete/5
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -76,10 +76,7 @@
         {
             @Html.ActionLink("Edit", "Edit", new { id = item.ID })
         }
-        @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
-        {
-            @Html.ActionLink("Details", "Details", new { id = item.ID })
-        }
+        @Html.ActionLink("Details", "Details", new { id = item.ID })
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.District)

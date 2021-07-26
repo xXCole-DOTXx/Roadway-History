@@ -303,6 +303,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Styles\Documents\print.css" />
     <Content Include="Styles\Statewides\AdvancedSearchStyles.css" />
     <Content Include="Styles\Documents\DetailsStyle.css" />
     <Content Include="Web.config" />
