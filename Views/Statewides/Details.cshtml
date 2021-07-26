@@ -1,4 +1,4 @@
-﻿@model Roadway_History.Models.Statewide
+﻿@model Roadway_History.Models.ViewModel
 
 <!--            CUSTOM CSS          -->
 <link href="~/Styles/Documents/DetailsStyle.css" type="text/css" rel="stylesheet">
@@ -28,18 +28,18 @@
         </div>
         <div class="row">
             <div class="col-md-9 text-left">
-                <h5><strong>COUNTY:</strong> <span class="box-shadow px-3">@Html.DisplayFor(model => model.COUNTY)</span></h5>
+                <h5><strong>COUNTY:</strong> <span class="box-shadow px-3">@Html.DisplayFor(model => model.Statewide.COUNTY)</span></h5>
             </div>
             <div class="col-md-3 text-right district">
-                <h5><strong>District:</strong>@Html.DisplayFor(model => model.District)</h5>
+                <h5><strong>District:</strong>@Html.DisplayFor(model => model.Statewide.District)</h5>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4 text-left">
-                <h5><strong>Route No:</strong><span class="box-shadow px-4">@Html.DisplayFor(model => model.RouteNo)</span></h5>
+                <h5><strong>Route No:</strong><span class="box-shadow px-4">@Html.DisplayFor(model => model.Statewide.RouteNo)</span></h5>
             </div>
             <div class="col-md-4">
-                <h5><strong>Sign System:</strong><span class="box-shadow px-4 sign">@Html.DisplayFor(model => model.SignSys)</span></h5>
+                <h5><strong>Sign System:</strong><span class="box-shadow px-4 sign">@Html.DisplayFor(model => model.Statewide.SignSys)</span></h5>
             </div>
             <div class="col-md-4"></div>
         </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="row">
             <div class="col-md-4 text-left">
-                <h5 class="box-shadow px-3 localName">@Html.DisplayFor(model => model.LocalName)</h5>
+                <h5 class="box-shadow px-3 localName">@Html.DisplayFor(model => model.Statewide.LocalName)</h5>
             </div>
             <div class="col-md-8"></div>
         </div>
@@ -59,17 +59,17 @@
                 <h5><strong>Supp Des:</strong></h5>
             </div>
             <div class="col-md-2 text-left">
-                <h5>@Html.DisplayFor(model => model.SuppDes)</h5>
+                <h5>@Html.DisplayFor(model => model.Statewide.SuppDes)</h5>
             </div>
             <div class="col-md-2 text-right">
                 <h5><strong>Method:</strong></h5>
             </div>
             <div class="col-md-2 text-left">
-                <h5>@Html.DisplayFor(model => model.Method)</h5>
+                <h5>@Html.DisplayFor(model => model.Statewide.Method)</h5>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-2 text-left">
-                @Html.DisplayFor(model => model.Duplicate_OK)
+                @Html.DisplayFor(model => model.Statewide.Duplicate_OK)
                 <label class="form-check-label" for="duplicateCheck"><strong>Duplicate OK</strong></label>
             </div>
         </div>
@@ -78,13 +78,13 @@
                 <h5><strong>Date:</strong></h5>
             </div>
             <div class="col-md-2 text-left">
-                <h5>@Html.DisplayFor(model => model.ReservedDate)</h5>
+                <h5>@Html.DisplayFor(model => model.Statewide.ReservedDate)</h5>
             </div>
             <div class="col-md-2 text-right">
                 <h5><strong>Original Location:</strong></h5>
             </div>
             <div class="col-md-2 text-left">
-                <h5>@Html.DisplayFor(model => model.OriginalL)</h5>
+                <h5>@Html.DisplayFor(model => model.Statewide.OriginalL)</h5>
             </div>
         </div>
         <div class="row">
@@ -93,21 +93,51 @@
                 <h5><strong>Original D:</strong></h5>
             </div>
             <div class="col-md-6 text-left">
-                <h6>@Html.DisplayFor(model => model.OriginalD)</h6>
+                <h6>@Html.DisplayFor(model => model.Statewide.OriginalD)</h6>
             </div>
         </div>
         <div class="borderline text-left">
             <h5 class="mb-0"><strong>DOCUMENTS</strong></h5>
         </div>
-        <h6 class="text-left">TABLE GOES HERE</h6>
+        <table class="table">
+            <tr>
+                <th>Doc Type</th>
+                <th>Order Date</th>
+                <th>Doc Location</th>
+                <th>File Contents</th>
+                <th>Comment</th>
+            </tr>
+
+            @foreach (var document in Model.Document)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => document.Doc_Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => document.Order_Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => document.Doc_Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => document.File_Contents)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => document.Comment)
+                    </td>
+                </tr>
+            }
+
+        </table>
         <div class="borderline text-left">
             <h5 class="mb-0"><strong>PROJECTS</strong></h5>
         </div>
-        <h6 class="text-left">@Html.DisplayFor(model => model.Projects)</h6>
+        <h6 class="text-left">@Html.DisplayFor(model => model.Statewide.Projects)</h6>
         <div class="borderline text-left">
             <h5 class="mb-0"><strong>COMMENTS</strong></h5>
         </div>
-        <h6 class="text-left">@Html.DisplayFor(model => model.Comments)</h6>
+        <h6 class="text-left">@Html.DisplayFor(model => model.Statewide.Comments)</h6>
     </div>
 
     <p style="margin-top: 20px">

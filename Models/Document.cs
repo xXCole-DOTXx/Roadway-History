@@ -26,5 +26,10 @@ namespace Roadway_History.Models
         public Nullable<System.DateTime> Date_Added { get; set; }
     
         public virtual Statewide Statewide { get; set; }
+
+        public static implicit operator Document(List<Document> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -12,6 +12,7 @@ using System.Security.Principal;
 using System.Security;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
+using System.Dynamic;
 
 namespace Roadway_History.Controllers
 {
@@ -313,17 +314,22 @@ namespace Roadway_History.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Statewide statewide = db.Statewides.Find(id);
 
-            var document = from s in db.Documents
-                           where s.Statewide_ID == id
-                             select s;
+            var documents = db.Documents.Where(s => s.Statewide_ID == id).ToList();
+
+            var model = new ViewModel
+            {
+                Statewide = statewide,
+                Document = documents
+            };
 
             if (statewide == null)
             {
                 return HttpNotFound();
             }
-            return View(statewide);
+            return View(model);
         }
 
         [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
