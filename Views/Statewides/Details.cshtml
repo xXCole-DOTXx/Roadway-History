@@ -1,7 +1,7 @@
 ﻿@model Roadway_History.Models.ViewModel
 
 <!--            CUSTOM CSS          -->
-<link href="~/Styles/Documents/DetailsStyle.css" type="text/css" rel="stylesheet">
+<link href="~/Styles/Statewides/DetailsStyle.css" type="text/css" rel="stylesheet">
 
 <!--            GOOGLE ICONS          -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -137,7 +137,7 @@
         <div class="borderline text-left">
             <h5 class="mb-0"><strong>COMMENTS</strong></h5>
         </div>
-        <h6 class="text-left">@Html.DisplayFor(model => model.Statewide.Comments)</h6>
+        <p class="text-left">@Html.DisplayFor(model => model.Statewide.Comments)</p>
     </div>
 
     <p style="margin-top: 20px">
