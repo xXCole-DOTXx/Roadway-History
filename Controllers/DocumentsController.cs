@@ -177,7 +177,7 @@ namespace Roadway_History.Controllers
             {
                 db.Entry(document).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { statewideID = document.Statewide_ID });
             }
             return View(document);
         }
@@ -204,9 +204,10 @@ namespace Roadway_History.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Document document = db.Documents.Find(id);
+            var stateID = document.Statewide_ID;
             db.Documents.Remove(document);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { statewideID = stateID });
         }
 
         protected override void Dispose(bool disposing)

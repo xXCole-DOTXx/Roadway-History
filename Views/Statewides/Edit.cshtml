@@ -16,57 +16,159 @@
     <hr />
 
     <div class="form-group">
-        @Html.LabelFor(model => model.COUNTY, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.COUNTY, "County", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.COUNTY, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.COUNTY, "", new { @class = "text-danger" })
+            @Html.DropDownList("COUNTY", new List<SelectListItem>
+            {
+                new SelectListItem {Text = "BARBOUR", Value="BARBOUR"  },
+                new SelectListItem {Text = "BERKELEY", Value="BERKELEY"  },
+                new SelectListItem {Text = "BOONE", Value="BOONE"  },
+                new SelectListItem {Text = "BRAXTON", Value="BRAXTON"  },
+                new SelectListItem {Text = "BROOKE", Value="BROOKE"  },
+                new SelectListItem {Text = "CABELL", Value="CABELL"  },
+                new SelectListItem {Text = "CALHOUN", Value="CALHOUN"  },
+                new SelectListItem {Text = "CLAY", Value="CLAY"  },
+                new SelectListItem {Text = "DODDRIDGE", Value="DODDRIDGE"  },
+                new SelectListItem {Text = "FAYETTE", Value="FAYETTE"  },
+                new SelectListItem {Text = "GILMER", Value="GILMER"  },
+                new SelectListItem {Text = "GRANT", Value="GRANT"  },
+                new SelectListItem {Text = "GREENBRIER", Value="GREENBRIER"  },
+                new SelectListItem {Text = "HAMPSHIRE", Value="HAMPSHIRE"  },
+                new SelectListItem {Text = "HANCOCK", Value="HANCOCK'"  },
+                new SelectListItem {Text = "HARDY", Value="HARDY"  },
+                new SelectListItem {Text = "HARRISON", Value="HARRISON"  },
+                new SelectListItem {Text = "JACKSON", Value="JACKSON"  },
+                new SelectListItem {Text = "JEFFERSON", Value="JEFFERSON"  },
+                new SelectListItem {Text = "KANAWHA", Value="KANAWHA"  },
+                new SelectListItem {Text = "LEWIS", Value="LEWIS"  },
+                new SelectListItem {Text = "LINCOLN", Value="LINCOLN"  },
+                new SelectListItem {Text = "LOGAN", Value="LOGAN"  },
+                new SelectListItem {Text = "MCDOWELL", Value="MCDOWELL"  },
+                new SelectListItem {Text = "MARION", Value="MARION"  },
+                new SelectListItem {Text = "MARSHALL", Value="MARSHALL"  },
+                new SelectListItem {Text = "MASON", Value="MASON"  },
+                new SelectListItem {Text = "MERCER", Value="MERCER"  },
+                new SelectListItem {Text = "MINERAL", Value="MINERAL"  },
+                new SelectListItem {Text = "MINGO", Value="MINGO"  },
+                new SelectListItem {Text = "MONONGALIA", Value="MONONGALIA"  },
+                new SelectListItem {Text = "MONROE", Value="MONROE"  },
+                new SelectListItem {Text = "MORGAN", Value="MORGAN"  },
+                new SelectListItem {Text = "NICHOLAS", Value="NICHOLAS"  },
+                new SelectListItem {Text = "OHIO", Value="OHIO"  },
+                new SelectListItem {Text = "PENDLETON", Value="PENDLETON"  },
+                new SelectListItem {Text = "PLEASANTS", Value="PLEASANTS"  },
+                new SelectListItem {Text = "POCAHONTAS", Value="POCAHONTAS"  },
+                new SelectListItem {Text = "PRESTON", Value="PRESTON"  },
+                new SelectListItem {Text = "PUTNAM", Value="PUTNAM"  },
+                new SelectListItem {Text = "RALEIGH", Value="RALEIGH'"  },
+                new SelectListItem {Text = "RANDOLPH", Value="RANDOLPH"  },
+                new SelectListItem {Text = "RITCHIE", Value="RITCHIE"  },
+                new SelectListItem {Text = "ROANE", Value="ROANE"  },
+                new SelectListItem {Text = "SUMMERS", Value="SUMMERS"  },
+                new SelectListItem {Text = "TAYLOR", Value="TAYLOR"  },
+                new SelectListItem {Text = "TUCKER", Value="TUCKER"  },
+                new SelectListItem {Text = "TYLER", Value="TYLER"  },
+                new SelectListItem {Text = "UPSHUR", Value="UPSHUR"  },
+                new SelectListItem {Text = "WAYNE", Value="WAYNE"  },
+                new SelectListItem {Text = "WEBSTER", Value="WEBSTER"  },
+                new SelectListItem {Text = "WETZEL", Value="WETZEL"  },
+                new SelectListItem {Text = "WIRT", Value="WIRT"  },
+                new SelectListItem {Text = "WOOD", Value="WOOD"  },
+                new SelectListItem {Text = "WYOMING", Value="WYOMING"  }
+            }, new { @class = "form-control" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.SignSys, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.SignSys, "Sign Sys", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.SignSys, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SignSys, "", new { @class = "text-danger" })
+            @Html.DropDownList("SignSys", new List<SelectListItem>
+            {
+                new SelectListItem {Text = "CO", Value="CO"  },
+                new SelectListItem {Text = "US", Value="US"  },
+                new SelectListItem {Text = "WV", Value="WV"  },
+                new SelectListItem {Text = "DE", Value="DE"  },
+                new SelectListItem {Text = "P&F", Value="P&F"  },
+                new SelectListItem {Text = "HA", Value="HA"  },
+                new SelectListItem {Text = "ZMISC", Value="ZMISC"  },
+                new SelectListItem {Text = "I", Value="I"  },
+                new SelectListItem {Text = "PR", Value="PR"  },
+                new SelectListItem {Text = "MNS", Value="MNS"  },
+                new SelectListItem {Text = "USFS", Value="USFS"  }
+            }, new { @class = "form-control" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.RouteNoOrigImport, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.RouteNoOrigImport, "Route No Orig Import", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.RouteNoOrigImport, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.RouteNoOrigImport, new { htmlAttributes = new { @class = "form-control", placeholder = "01132" } })
             @Html.ValidationMessageFor(model => model.RouteNoOrigImport, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.RouteNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.RouteNo, "Route No", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.RouteNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.RouteNo, new { htmlAttributes = new { @class = "form-control", placeholder = "19" } })
             @Html.ValidationMessageFor(model => model.RouteNo, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.SuppDes, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.SuppDes, "Supp Des", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.SuppDes, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SuppDes, "", new { @class = "text-danger" })
+            @Html.DropDownList("SuppDes", new List<SelectListItem>
+            {
+                new SelectListItem {Text = "Not Applicable", Value="00"  },
+                new SelectListItem {Text = "Alternate", Value="01"  },
+                new SelectListItem {Text = "Wye", Value="02"  },
+                new SelectListItem {Text = "Spur", Value="03"  },
+                new SelectListItem {Text = "North", Value="04"  },
+                new SelectListItem {Text = "South", Value="05"  },
+                new SelectListItem {Text = "East", Value="06"  },
+                new SelectListItem {Text = "West", Value="07"  },
+                new SelectListItem {Text = "Business", Value="08"  },
+                new SelectListItem {Text = "North Bound", Value="09"  },
+                new SelectListItem {Text = "South Bound", Value="10"  },
+                new SelectListItem {Text = "East Bound", Value="11"  },
+                new SelectListItem {Text = "West Bound", Value="12"  },
+                new SelectListItem {Text = "Truck Route", Value="13"  },
+                new SelectListItem {Text = "Bypass", Value="14"  },
+                new SelectListItem {Text = "Loop", Value="15"  },
+                new SelectListItem {Text = "Toll", Value="16"  },
+                new SelectListItem {Text = "Ramp", Value="17"  },
+                new SelectListItem {Text = "Other", Value="18"  },
+                new SelectListItem {Text = "City St. Non-State", Value="19"  },
+                new SelectListItem {Text = "Road Under Construction", Value="20"  },
+                new SelectListItem {Text = "Footbridge", Value="21"  },
+                new SelectListItem {Text = "Historical Bridge", Value="22"  },
+                new SelectListItem {Text = "Connector", Value="23"  },
+                new SelectListItem {Text = "New/Proposed", Value="24"  },
+                new SelectListItem {Text = "Crossover", Value="25"  },
+                new SelectListItem {Text = "Emergency Crossover", Value="26"  },
+                new SelectListItem {Text = "Left Turn Lane", Value="27"  },
+                new SelectListItem {Text = "Right Turn Lane", Value="28"  },
+                new SelectListItem {Text = "Rail Trail", Value="51"  },
+                new SelectListItem {Text = "Abandoned", Value="99"  }
+            }, new { @class = "form-control" })
         </div>
     </div>
+
+
 
     <div class="form-group">
         @Html.LabelFor(model => model.LocalName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.LocalName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.LocalName, "Local Name", new { htmlAttributes = new { @class = "form-control", placeholder = "Tioga" } })
             @Html.ValidationMessageFor(model => model.LocalName, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.DateNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.DateNumber, "Order Date", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.DateNumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.DateNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "7/20/2021" } })
             @Html.ValidationMessageFor(model => model.DateNumber, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -74,15 +176,15 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Method, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Method, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Method, new { htmlAttributes = new { @class = "form-control", placeholder = "LA" } })
             @Html.ValidationMessageFor(model => model.Method, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.OriginalL, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.OriginalL, "Original Location", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.OriginalL, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.OriginalL, new { htmlAttributes = new { @class = "form-control", placeholder = "2.5" } })
             @Html.ValidationMessageFor(model => model.OriginalL, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -90,7 +192,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.OriginalD, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.OriginalD, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.OriginalD, new { htmlAttributes = new { @class = "form-control", placeholder = "Description of road..." } })
             @Html.ValidationMessageFor(model => model.OriginalD, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -98,23 +200,15 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Projects, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Projects, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Projects, new { htmlAttributes = new { @class = "form-control", placeholder = "U331-442" } })
             @Html.ValidationMessageFor(model => model.Projects, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Documents, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Documents, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Documents, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control", placeholder = "My comments..." } })
             @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -122,13 +216,24 @@
     <div class="form-group">
         @Html.LabelFor(model => model.District, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.District, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })
+            @Html.DropDownList("District", new List<SelectListItem>
+            {
+            new SelectListItem {Text = "District 1", Value="1"  },
+            new SelectListItem {Text = "District 2", Value="2"  },
+            new SelectListItem {Text = "District 3", Value="3"  },
+            new SelectListItem {Text = "District 4", Value="4"  },
+            new SelectListItem {Text = "District 5", Value="5"  },
+            new SelectListItem {Text = "District 6", Value="6"  },
+            new SelectListItem {Text = "District 7", Value="7"  },
+            new SelectListItem {Text = "District 8", Value="8"  },
+            new SelectListItem {Text = "District 9", Value="9"  },
+            new SelectListItem {Text = "District 10", Value="10"  }
+            }, new { @class = "form-control" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Duplicate_OK, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Duplicate_OK, "Duplicate OK", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.Duplicate_OK)
@@ -138,15 +243,15 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.RightofWay, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.RightofWay, "Right of Way", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.RightofWay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.RightofWay, new { htmlAttributes = new { @class = "form-control", placeholder = "150' Seeplans X332-11/65-0.00 02" } })
             @Html.ValidationMessageFor(model => model.RightofWay, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ReservedRoute, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ReservedRoute, "Reserved Route,", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.ReservedRoute)
@@ -156,23 +261,23 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ReservedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ReservedBy, "Reserved By", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ReservedBy, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.ReservedBy, new { htmlAttributes = new { @class = "form-control", placeholder = "Sara Cremeans" } })
             @Html.ValidationMessageFor(model => model.ReservedBy, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ReservedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ReservedDate, "Reserved Date", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ReservedDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.ReservedDate, new { htmlAttributes = new { @class = "form-control", placeholder = "7/20/2021" } })
             @Html.ValidationMessageFor(model => model.ReservedDate, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.CP_WorkCompleted, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CP_WorkCompleted, "CP Work Completed", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             <div class="checkbox">
                 @Html.EditorFor(model => model.CP_WorkCompleted)
@@ -182,26 +287,30 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Work_Comments, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Work_Comments, "Work Comments", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Work_Comments, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.Work_Comments, new { htmlAttributes = new { @class = "form-control", placeholder = "My work comments" } })
             @Html.ValidationMessageFor(model => model.Work_Comments, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.CP_ProjectNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CP_ProjectNo, "CP Project No", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.CP_ProjectNo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.CP_ProjectNo, new { htmlAttributes = new { @class = "form-control", placeholder = "X301 24 7 00000" } })
             @Html.ValidationMessageFor(model => model.CP_ProjectNo, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.ReservedCat, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ReservedCat, "Reserved Cat", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.ReservedCat, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ReservedCat, "", new { @class = "text-danger" })
+            @Html.DropDownList("ReservedCat", new List<SelectListItem>
+            {
+            new SelectListItem {Text = "0", Value="0"  },
+            new SelectListItem {Text = "1", Value="1"  },
+            new SelectListItem {Text = "2", Value="2"  }
+            }, new { @class = "form-control" })
         </div>
     </div>
 
