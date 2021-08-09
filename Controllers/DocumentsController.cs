@@ -25,6 +25,7 @@ namespace Roadway_History.Controllers
             ViewBag.DateSortParm = sortOrder == "date" ? "date_desc" : "date";
             ViewBag.statewideID = statewideID;
 
+
             if (searchString != null)
             {
                 page = 1;
@@ -86,7 +87,7 @@ namespace Roadway_History.Controllers
                     documents = documents.OrderByDescending(s => s.Order_Date);
                     break;
                 default:
-                    documents = documents.OrderByDescending(s => s.ID);
+                    documents = documents.OrderByDescending(s => s.Order_Date);
                     break;
             }
 
@@ -96,8 +97,9 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, int? statewideID)
         {
+            ViewBag.statewideID = statewideID;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -152,8 +154,9 @@ namespace Roadway_History.Controllers
 
         // GET: Documents/Edit/5
         [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, int? statewideID)
         {
+            ViewBag.statewideID = statewideID;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -184,8 +187,9 @@ namespace Roadway_History.Controllers
 
         // GET: Documents/Delete/5
         [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, int? statewideID)
         {
+            ViewBag.statewideID = statewideID;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

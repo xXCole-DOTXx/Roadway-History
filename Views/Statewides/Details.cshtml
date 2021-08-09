@@ -141,7 +141,7 @@
     </div>
 
     <p style="margin-top: 20px">
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Back to List", "Index", new { sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
     </p>
 
 </div>

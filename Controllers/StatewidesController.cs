@@ -304,8 +304,10 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Statewides/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, string sortOrder, string currentFilter)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.CurrentFilter = currentFilter;
             ViewBag.ID = id;
             var today = DateTime.Today;
             var todayAsString = today.ToString("MM/dd/yyyy");
@@ -334,8 +336,10 @@ namespace Roadway_History.Controllers
 
         [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
         // GET: Statewides/Create
-        public ActionResult Create()
+        public ActionResult Create(string sortOrder, string currentFilter)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.CurrentFilter = currentFilter;
             var model = new Statewide();
             return View(model);
         }
@@ -383,8 +387,10 @@ namespace Roadway_History.Controllers
 
         // GET: Statewides/Edit/5
         [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, string sortOrder, string currentFilter)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.CurrentFilter = currentFilter;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -415,8 +421,11 @@ namespace Roadway_History.Controllers
 
         // GET: Statewides/Delete/5
         [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, string sortOrder, string currentFilter)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.CurrentFilter = currentFilter;
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

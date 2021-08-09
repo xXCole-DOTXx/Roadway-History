@@ -18,11 +18,15 @@
 
     @Html.Hidden("Statewide_ID", (object)ViewBag.statewideID)
 
+
     <div class="form-group">
-        @Html.LabelFor(model => model.Doc_Type, "Doc Type", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Doc_Type, "Document Type", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Doc_Type, new { htmlAttributes = new { @class = "form-control", placeholder = "CO" } })
-            @Html.ValidationMessageFor(model => model.Doc_Type, "", new { @class = "text-danger" })
+            @Html.DropDownList("Doc_Type", new List<SelectListItem>
+            {
+            new SelectListItem {Text = "CO", Value="CO"  },
+            new SelectListItem {Text = "CF", Value="CF"  },
+            }, new { @class = "form-control" })
         </div>
     </div>
 
@@ -35,10 +39,13 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Doc_Location, "Doc Location", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Doc_Location, "Document Location", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Doc_Location, new { htmlAttributes = new { @class = "form-control", placeholder = "CORF" } })
-            @Html.ValidationMessageFor(model => model.Doc_Location, "", new { @class = "text-danger" })
+            @Html.DropDownList("Doc_Location", new List<SelectListItem>
+            {
+            new SelectListItem {Text = "CF", Value="CF"  },
+            new SelectListItem {Text = "CORF", Value="CORF"  },
+            }, new { @class = "form-control" })
         </div>
     </div>
 
@@ -67,7 +74,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { statewideID = ViewBag.statewideID })
 </div>
 
 @section Scripts {

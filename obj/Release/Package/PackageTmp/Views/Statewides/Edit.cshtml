@@ -180,6 +180,17 @@
             @Html.ValidationMessageFor(model => model.Method, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Method, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Method", new List<SelectListItem>
+            {
+            new SelectListItem {Text = "CO", Value="CO"  },
+            new SelectListItem {Text = "LA", Value="LA"  },
+            new SelectListItem {Text = "Reinventory", Value="Reinventory"  }
+            }, new { @class = "form-control" })
+        </div>
+    </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.OriginalL, "Original Location", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -323,7 +334,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
 </div>
 
 @section Scripts {

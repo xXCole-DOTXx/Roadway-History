@@ -17,6 +17,8 @@
     }
 </p>
 
+
+
 @using (Html.BeginForm("Index", "Documents", FormMethod.Get))
 {
     <p>
@@ -25,7 +27,7 @@
     </p>
 }
 
-<p>Default order is newest to oldest.</p>
+<p>Default order is newest to oldest order date.</p>
 <table class="table">
     <tr>
         @if (ViewBag.County != null)
@@ -45,7 +47,7 @@
             Doc Type
         </th>
         <th>
-            @Html.ActionLink("Order Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.ActionLink("Order Date", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter, statewideID = ViewBag.statewideID })
         </th>
         <th>
             Doc Location
@@ -92,9 +94,9 @@
     @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
     {
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID, statewideID = ViewBag.statewideID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID, statewideID = ViewBag.statewideID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID, statewideID = ViewBag.statewideID })
         </td>
     }
 </tr>

@@ -18,7 +18,7 @@
 @using (Html.BeginForm("Index", "Statewides", FormMethod.Get))
 {
     <p style="text-align: center">
-        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
         <input type="submit" value="Search all fields" />
     </p>
 }
@@ -74,9 +74,9 @@
     <td>
         @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
         {
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
         }
-        @Html.ActionLink("Details", "Details", new { id = item.ID })
+        @Html.ActionLink("Details", "Details", new { id = item.ID, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.District)
@@ -102,7 +102,7 @@
     <td>
         @if (User.Identity.IsAuthenticated && User.IsInRole("EXECUTIVE\\DOH Roadway His"))
         {
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-large" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }, new { @class = "btn btn-danger btn-large" })
         }
     </td>
 </tr>
