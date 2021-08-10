@@ -114,9 +114,10 @@ namespace Roadway_History.Controllers
 
         // GET: Documents/Create
         [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
-        public ActionResult Create(int? statewideID)
+        public ActionResult Create(int? statewideID, int? routeNumber)
         {
             ViewBag.statewideID = statewideID;
+            ViewBag.routeNo = routeNumber;
             return View();
         }
 

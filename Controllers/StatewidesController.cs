@@ -356,6 +356,7 @@ namespace Roadway_History.Controllers
                 statewide.Documents = null;
                 statewide.Add_User = User.Identity.Name;
                 statewide.Date_Added = DateTime.Now;
+                int? routeNo = statewide.RouteNo;
                 try
                 {
                     db.Statewides.Add(statewide);
@@ -378,8 +379,8 @@ namespace Roadway_History.Controllers
                 }
 
 
-            int lastAddedID = db.Statewides.Max(item => item.ID);
-                return RedirectToAction("Create", "Documents", new { statewideID = lastAddedID});
+                int lastAddedID = db.Statewides.Max(item => item.ID);
+                return RedirectToAction("Create", "Documents", new { statewideID = lastAddedID, routeNumber = routeNo });
             }
 
             return View(statewide);

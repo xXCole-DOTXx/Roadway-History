@@ -12,7 +12,7 @@
     {
         if (ViewBag.statewideID != null)
         {
-            @Html.ActionLink("Create New", "Create", new { statewideID = ViewBag.statewideID })
+            @Html.ActionLink("Create New", "Create", new { statewideID = ViewBag.statewideID, routeNumber = ViewBag.Route })
         }
     }
 </p>
