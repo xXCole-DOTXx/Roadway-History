@@ -113,7 +113,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Create
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097, EXECUTIVE\\A020484")]
         public ActionResult Create(int? statewideID, int? routeNumber)
         {
             ViewBag.statewideID = statewideID;
@@ -154,7 +154,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Edit/5
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097, EXECUTIVE\\A020484")]
         public ActionResult Edit(int? id, int? statewideID)
         {
             ViewBag.statewideID = statewideID;
@@ -187,7 +187,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Documents/Delete/5
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097, EXECUTIVE\\A020484")]
         public ActionResult Delete(int? id, int? statewideID)
         {
             ViewBag.statewideID = statewideID;

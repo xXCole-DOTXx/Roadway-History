@@ -13,6 +13,7 @@ using System.Security;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Dynamic;
+using System.Text;
 
 namespace Roadway_History.Controllers
 {
@@ -71,6 +72,20 @@ namespace Roadway_History.Controllers
                                              || s.RouteNo.ToString().Contains(searchString)
                                              || s.LocalName.Contains(searchString));
             }
+
+            //Code for duplicates
+            var duplicates = statewides
+                .GroupBy(i => i.RouteNo)
+                .Where(g => g.Count() > 1)
+                .SelectMany(g => g).ToList();
+
+            foreach (var i in duplicates)
+            {
+                i.isDupe = true;
+            }
+
+            /*ViewBag.Duplicates = duplicates.Count();
+            System.Diagnostics.Debug.WriteLine("Duplicates: " + duplicates.Count());*/
 
             switch (sortOrder)
             {
@@ -334,7 +349,7 @@ namespace Roadway_History.Controllers
             return View(model);
         }
 
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097, EXECUTIVE\\A020484")]
         // GET: Statewides/Create
         public ActionResult Create(string sortOrder, string currentFilter)
         {
@@ -364,7 +379,8 @@ namespace Roadway_History.Controllers
                 }
                 catch (DbEntityValidationException ex)
                 {
-                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    var err = new StringBuilder();
+                    foreach (var entityValidationErrors in ex.EntityValidationErrors)
                 {
                     foreach (var validationError in entityValidationErrors.ValidationErrors)
                     {
@@ -372,10 +388,13 @@ namespace Roadway_History.Controllers
                         if (ex.InnerException != null)
                         {
                             Response.Write(ex.InnerException.Message);
+                            System.Diagnostics.Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                            System.Diagnostics.Debug.WriteLine("err: " + err);
+                            return RedirectToAction("Error", new { message = err.ToString() });
                         }
                     }
                 }
-                    return RedirectToAction("Error", new { error = 1, name = User.Identity.Name });
+                    //return RedirectToAction("Error", new { error = 1, name = User.Identity.Name });
                 }
 
 
@@ -387,7 +406,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Statewides/Edit/5
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097, EXECUTIVE\\A020484")]
         public ActionResult Edit(int? id, string sortOrder, string currentFilter)
         {
             ViewBag.CurrentSort = sortOrder;
@@ -421,7 +440,7 @@ namespace Roadway_History.Controllers
         }
 
         // GET: Statewides/Delete/5
-        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097")]
+        [Authorize(Users = "EXECUTIVE\\E072340, EXECUTIVE\\E096752, EXECUTIVE\\E089025, EXECUTIVE\\E107097, EXECUTIVE\\A020484")]
         public ActionResult Delete(int? id, string sortOrder, string currentFilter)
         {
             ViewBag.CurrentSort = sortOrder;
@@ -466,8 +485,9 @@ namespace Roadway_History.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult Error(int error, string userName)
+        public ActionResult Error(int error, string userName, string message)
         {
+            ViewBag.ErrorMessage = message;
             if(error == 1)
             {
                 ViewBag.Error = "";

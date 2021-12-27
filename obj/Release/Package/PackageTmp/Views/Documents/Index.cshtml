@@ -30,6 +30,9 @@
 <p>Default order is newest to oldest order date.</p>
 <table class="table">
     <tr>
+        <th>
+            ID
+        </th>
         @if (ViewBag.County != null)
         {
             <th>
@@ -64,6 +67,9 @@
     @foreach (var item in Model)
     {
 <tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID)
+    </td>
     @if (ViewBag.County != null)
     {
         <td>

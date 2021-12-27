@@ -64,7 +64,7 @@
 
     @foreach (var item in Model)
     {
-<tr>
+    <tr style="@(item.isDupe == true ? "background-color: yellow" : "")">
     <td>
         <!--Html.ActionLink("Documents", "Index", "Documents", new { statewideID = item.ID }, new { class = "btn btn-primary btn-large" }) -->
         <a href="@Url.Action("Index", "Documents", new { statewideID = item.ID })" title="Documents" class="links">

@@ -173,6 +173,7 @@
   <ItemGroup>
     <Content Include="Assets\documents.png" />
     <Content Include="Assets\DOH banner.png" />
+    <Content Include="Assets\dot.png" />
     <Content Include="Assets\logo.jpg" />
     <Content Include="Assets\resource1.PNG" />
     <Content Include="Assets\WVDOT.png" />
@@ -222,6 +223,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Roadway_History_Manual.pdf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

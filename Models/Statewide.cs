@@ -11,7 +11,8 @@ namespace Roadway_History.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Statewide
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -46,6 +47,8 @@ namespace Roadway_History.Models
         public Nullable<int> ReservedCat { get; set; }
         public string Add_User { get; set; }
         public Nullable<System.DateTime> Date_Added { get; set; }
+        [NotMapped]
+        public bool isDupe { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Document> Documents1 { get; set; }
